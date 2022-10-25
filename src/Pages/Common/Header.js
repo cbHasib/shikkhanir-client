@@ -141,6 +141,32 @@ const Header = () => {
                   <li>
                     <NavLink
                       onClick={navHandler}
+                      to={"/courses"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block md:px-4 transition text-primary"
+                          : "block md:px-4 transition hover:text-primary text-base-content"
+                      }
+                    >
+                      <span>Courses</span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      onClick={navHandler}
+                      to={"/faq"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block md:px-4 transition text-primary"
+                          : "block md:px-4 transition hover:text-primary text-base-content"
+                      }
+                    >
+                      <span>FAQs</span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      onClick={navHandler}
                       to={"/blog"}
                       className={({ isActive }) =>
                         isActive
@@ -206,7 +232,7 @@ const Header = () => {
                 </label>
               </div>
 
-                          <div
+              <div
                 className="tooltip tooltip-primary tooltip-bottom hidden lg:block ml-6"
                 data-tip="Hasibul Hasan"
               >
