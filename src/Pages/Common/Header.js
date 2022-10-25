@@ -80,8 +80,7 @@ const Header = () => {
               </Link>
 
               <div
-                className="tooltip tooltip-primary tooltip-right lg:hidden"
-                data-tip="Hasibul Hasan"
+                title="Hasibul Hasan"
               >
                 <HeaderUserProfile />
               </div>
@@ -233,7 +232,7 @@ const Header = () => {
               </div>
 
               <div
-                className="tooltip tooltip-primary tooltip-right hidden lg:block ml-6"
+                className="tooltip tooltip-primary tooltip-bottom hidden lg:block ml-6"
                 data-tip="Hasibul Hasan"
               >
                 <HeaderUserProfile />
