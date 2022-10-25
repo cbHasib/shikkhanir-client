@@ -2,11 +2,11 @@ import React from "react";
 
 const CourseCard = () => {
   return (
-      <div className="max-w-[330px] rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100 p-3 ">
+      <div className="max-w-[330px] bg-white rounde-lg shadow-md dark:bg-gray-900 dark:text-gray-100 p-3 ">
         <img
           src="https://cdn.10minuteschool.com/images/Admission/Thumbnails/hsc_bangla_course.jpg"
           alt=""
-          className="object-cover object-center w-full rounded-md h-44 dark:bg-gray-500"
+          className="object-cover object-center w-full rounded-lg h-44 dark:bg-gray-500"
         />
         <div className="flex flex-col justify-between px-3 py-2 space-y-3">
           <div className="space-y-2">

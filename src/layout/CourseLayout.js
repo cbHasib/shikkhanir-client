@@ -8,12 +8,15 @@ const CourseLayout = () => {
   return (
     <div>
       <Header />
-      <div className="grid grid-cols-5">
-        <div className="">
+      <div className="grid grid-cols-4 lg:grid-cols-5">
+        <div className="hidden lg:block">
           <SideBar />
         </div>
         <div className="col-span-4">
           <Outlet />
+        </div>
+        <div className="lg:hidden col-span-4 px-5 py-3">
+          <SideBar />
         </div>
       </div>
       <Footer />
