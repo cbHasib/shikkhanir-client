@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { GrClose } from "react-icons/gr";
 
 const ForgetPassword = () => {
   return (
@@ -11,8 +11,14 @@ const ForgetPassword = () => {
       />
 
       <div className="modal">
-        <div id="content" role="main" className="w-full max-w-md mx-auto p-6">
-          <div className="mt-7 bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700">
+        <div id="content" role="main" className="w-full max-w-md mx-auto p-6 ">
+          <div className="bg-white  rounded-xl shadow-lg relative dark:bg-gray-800 dark:border-gray-700">
+            <label
+              htmlFor="forgetPassword-modal"
+              className="cursor-pointer absolute top-3 right-3 btn btn-ghost btn-sm"
+            >
+              <GrClose />
+            </label>
             <div className="p-4 sm:p-7">
               <div className="text-center">
                 <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
@@ -47,7 +53,7 @@ const ForgetPassword = () => {
                           name="email"
                           className="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm"
                           required
-                          aria-describedby="email-error"
+                          ariaDescribedby="email-error"
                         />
                       </div>
                       <p
@@ -58,13 +64,12 @@ const ForgetPassword = () => {
                         to you
                       </p>
                     </div>
-                    <label
-                      htmlFor="forgetPassword-modal"
+                    <button
                       type="submit"
                       className="cursor-pointer py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
                     >
                       Reset password
-                    </label>
+                    </button>
                   </div>
                 </form>
               </div>
