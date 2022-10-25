@@ -7,7 +7,7 @@ const Error = () => {
   return (
     <>
       <Header />
-      <div class="grid h-screen place-content-center bg-white dark:bg-gray-900">
+      <div class="grid h-[90vh] place-content-center bg-white dark:bg-gray-900">
         <div class="text-center">
           <strong class="text-9xl font-black text-gray-200 dark:text-gray-700">
             404

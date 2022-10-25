@@ -20,8 +20,8 @@ const Header = () => {
 
   useEffect(() => {
     if (dark) {
-      document.querySelector("html").setAttribute("data-theme", "dark");
       document.querySelector("html").setAttribute("class", "dark");
+      document.querySelector("html").setAttribute("data-theme", "dark");
     } else {
       document.querySelector("html").removeAttribute("data-theme");
       document.querySelector("html").removeAttribute("class");
@@ -112,27 +112,27 @@ const Header = () => {
                   <li>
                     <NavLink
                       onClick={navHandler}
-                      to={"/quiz"}
+                      to={"/login"}
                       className={({ isActive }) =>
                         isActive
                           ? "block md:px-4 transition text-primary"
                           : "block md:px-4 transition hover:text-primary text-base-content"
                       }
                     >
-                      <span>Quiz</span>
+                      <span>Login</span>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink
                       onClick={navHandler}
-                      to={"/statistics"}
+                      to={"/register"}
                       className={({ isActive }) =>
                         isActive
                           ? "block md:px-4 transition text-primary"
                           : "block md:px-4 transition hover:text-primary text-base-content"
                       }
                     >
-                      <span>Statistics</span>
+                      <span>Register</span>
                     </NavLink>
                   </li>
                   <li>
