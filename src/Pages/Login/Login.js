@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ForgetPassword from "../User/ForgetPassword/ForgetPassword";
 
 const Login = () => {
   return (
@@ -83,9 +84,10 @@ const Login = () => {
           <Link to="/register" className="">
             Create an account
           </Link>
-          | <button className="">Forgot password</button>
+          | <label htmlFor="forgetPassword-modal" className="cursor-pointer">Forgot password</label>
         </div>
       </div>
+      <ForgetPassword />
     </section>
   );
 };
