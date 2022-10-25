@@ -79,7 +79,10 @@ const Header = () => {
                 </span>
               </Link>
 
-              <div className="lg:hidden">
+              <div
+                className="tooltip tooltip-primary tooltip-bottom lg:hidden"
+                data-tip="Hasibul Hasan"
+              >
                 <HeaderUserProfile />
               </div>
             </div>
@@ -203,7 +206,10 @@ const Header = () => {
                 </label>
               </div>
 
-              <div className="hidden lg:block ml-6">
+                          <div
+                className="tooltip tooltip-primary tooltip-bottom hidden lg:block ml-6"
+                data-tip="Hasibul Hasan"
+              >
                 <HeaderUserProfile />
               </div>
             </div>

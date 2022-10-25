@@ -1,5 +1,4 @@
 import React from "react";
-import bgImg from "../../assets/images/bghero.png"
 
 const HeroSection = () => {
   return (
@@ -17,8 +16,8 @@ const HeroSection = () => {
             </h1>
 
             <p class="mt-4 max-w-lg sm:text-xl sm:leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-              illo tenetur fuga ducimus numquam ea!
+              Largest online education platform. Enrich your knowledge with
+              ShikkhaNir. Make yourself talented!
             </p>
 
             <div class="mt-8 flex flex-wrap gap-4 text-center">

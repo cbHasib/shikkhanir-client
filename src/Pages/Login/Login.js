@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <section className="bg-base-200">
-      <div className="px-0 py-20 mx-auto max-w-7xl sm:px-4">
-        <div className="w-full px-4 pt-5 pb-6 mx-auto mt-8 mb-6 bg-base-100 rounded-none shadow-xl sm:rounded-lg sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 sm:px-6">
+      <div className="px-5 py-12 mx-auto max-w-7xl sm:px-4">
+        <div className="w-full px-4 pt-5 pb-6 mx-auto mt-8 mb-6 bg-base-100 shadow-xl sm:rounded-lg sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 sm:px-6 rounded-lg">
           <h1 className="mb-6 text-2xl text-center font-semibold">
             Log in to your account
           </h1>
@@ -79,14 +79,11 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <div className="mb-4 text-xs text-center text-base-content flex justify-center gap-3 items-center">
+        <div className="mb-4 text-xs text-center text-base-content flex justify-center gap-4 items-center">
           <Link to="/register" className="">
             Create an account
           </Link>
-          ·<button className="">Forgot password</button>·
-          <button href="#" className="">
-            Privacy & Terms
-          </button>
+          | <button className="">Forgot password</button>
         </div>
       </div>
     </section>
