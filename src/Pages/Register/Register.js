@@ -74,6 +74,17 @@ const Register = () => {
       });
   };
 
+  const handleGitHubLogin = () => {
+    loginWithGitHub()
+      .then(() => {
+        toast.success("Registration Successful");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
+
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2">
       <div className="w-full px-4 py-10 mx-auto xl:py-12 md:w-3/5 lg:w-4/5 xl:w-3/5">
@@ -98,7 +109,7 @@ const Register = () => {
               </svg>
               <span className="sr-only">Continue with</span> Google
             </button>
-            <button className="py-3 btn gap-2">
+            <button onClick={handleGitHubLogin} className="py-3 btn gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 30 30"

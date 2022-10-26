@@ -1,11 +1,23 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FiUser, FiUserPlus, FiVideo, FiLogOut } from "react-icons/fi";
 import { IconContext } from "react-icons";
 import { AuthContext } from "../../Contexts/UserContext";
+import avatar from "../../assets/images/user.png";
 
 const SideBar = () => {
-  const {user} = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigate = (path) => {
+    navigate(path, { state: { from: location } });
+  };
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <div className="h-full p-3 space-y-2 w-full bg-white dark:bg-base-300 dark:text-gray-100 ">
@@ -13,12 +25,15 @@ const SideBar = () => {
         {user && (
           <div className="flex items-center p-2 space-x-4 border border-base-300 shadow rounded-md bg-base-200 dark:bg-base-100">
             <img
-              src="https://source.unsplash.com/100x100/?portrait"
-              alt=""
+              src={user?.photoURL ? user?.photoURL : avatar}
+              alt={user?.displayName ? user?.displayName : "User Photo"}
+              referrerPolicy="no-referrer"
               className="w-12 h-12 rounded-full dark:bg-gray-500"
             />
             <div>
-              <h2 className="text-lg font-semibold">Hasibul Hasan</h2>
+              <h2 className="text-lg font-semibold">
+                {user?.displayName ? user?.displayName : "username"}
+              </h2>
               <span className="flex items-center space-x-1">
                 <Link
                   to="/profile"
@@ -96,14 +111,10 @@ const SideBar = () => {
             <>
               <ul className="pt-4 pb-2 space-y-1 text-sm">
                 <li>
-                  <NavLink
+                  <Link
                     rel="noopener noreferrer"
-                    to="/login"
-                    className={({ isActive }) =>
-                      isActive
-                        ? undefined
-                        : "flex items-center p-2 space-x-3 rounded-md  hover:bg-success hover:text-white duration-300 bg-base-100  my-1"
-                    }
+                    to="/profile"
+                    className="flex items-center p-2 space-x-3 rounded-md  hover:bg-success hover:text-white duration-300 bg-base-100  my-1"
                   >
                     <IconContext.Provider value={{ size: "1.25rem" }}>
                       <div>
@@ -111,17 +122,14 @@ const SideBar = () => {
                       </div>
                     </IconContext.Provider>
                     <span>Profile</span>
-                  </NavLink>
+                  </Link>
                 </li>
                 <li>
-                  <NavLink
+                  <Link
+                    onClick={handleLogout}
                     rel="noopener noreferrer"
-                    to="/login"
-                    className={({ isActive }) =>
-                      isActive
-                        ? undefined
-                        : "flex items-center p-2 space-x-3 rounded-md  hover:bg-success hover:text-white duration-300 bg-base-100  my-1"
-                    }
+                    to="/courses"
+                    className="flex items-center p-2 space-x-3 rounded-md  hover:bg-success hover:text-white duration-300 bg-base-100  my-1"
                   >
                     <IconContext.Provider value={{ size: "1.25rem" }}>
                       <div>
@@ -129,7 +137,7 @@ const SideBar = () => {
                       </div>
                     </IconContext.Provider>
                     <span>Logout</span>
-                  </NavLink>
+                  </Link>
                 </li>
               </ul>
             </>
@@ -137,14 +145,10 @@ const SideBar = () => {
             <>
               <ul className="pt-4 pb-2 space-y-1 text-sm">
                 <li>
-                  <NavLink
+                  <button
                     rel="noopener noreferrer"
-                    to="/login"
-                    className={({ isActive }) =>
-                      isActive
-                        ? undefined
-                        : "flex items-center p-2 space-x-3 rounded-md  hover:bg-success hover:text-white duration-300 bg-base-100  my-1"
-                    }
+                    onClick={() => handleNavigate("/login")}
+                    className="w-full flex items-center p-2 space-x-3 rounded-md  hover:bg-success hover:text-white duration-300 bg-base-100  my-1"
                   >
                     <IconContext.Provider value={{ size: "1.25rem" }}>
                       <div>
@@ -152,17 +156,13 @@ const SideBar = () => {
                       </div>
                     </IconContext.Provider>
                     <span>Login</span>
-                  </NavLink>
+                  </button>
                 </li>
                 <li>
-                  <NavLink
+                  <button
                     rel="noopener noreferrer"
-                    to="/register"
-                    className={({ isActive }) =>
-                      isActive
-                        ? undefined
-                        : "flex items-center p-2 space-x-3 rounded-md  hover:bg-success hover:text-white duration-300 bg-base-100  my-1"
-                    }
+                    onClick={() => handleNavigate("/register")}
+                    className="w-full flex items-center p-2 space-x-3 rounded-md  hover:bg-success hover:text-white duration-300 bg-base-100  my-1"
                   >
                     <IconContext.Provider value={{ size: "1.25rem" }}>
                       <div>
@@ -171,7 +171,7 @@ const SideBar = () => {
                     </IconContext.Provider>
 
                     <span>Register</span>
-                  </NavLink>
+                  </button>
                 </li>
               </ul>
             </>

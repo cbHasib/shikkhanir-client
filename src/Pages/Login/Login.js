@@ -10,7 +10,8 @@ const Login = () => {
   useScrollToTop();
   useTitle("Login");
 
-  const { user, signIn, setLoading, loginWithGoogle } = useContext(AuthContext);
+  const { user, signIn, setLoading, loginWithGoogle, loginWithGitHub } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
@@ -41,6 +42,17 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     loginWithGoogle()
+      .then((result) => {
+        toast.success(`Welcome back ${result.user.displayName}!`);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
+
+  const handleGitHubLogin = () => {
+    loginWithGitHub()
       .then((result) => {
         toast.success(`Welcome back ${result.user.displayName}!`);
       })
@@ -116,7 +128,7 @@ const Login = () => {
                 </svg>
                 <span className="sr-only">Continue with</span> Google
               </button>
-              <button className="py-3 btn gap-2">
+              <button onClick={handleGitHubLogin} className="py-3 btn gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 30 30"
