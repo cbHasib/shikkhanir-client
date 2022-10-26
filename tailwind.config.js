@@ -5,12 +5,12 @@ module.exports = {
     extend: {},
   },
   plugins: [require("daisyui")],
-  darkMode: 'class',
+  darkMode: "class",
 
   // daisyUI config (optional)
   daisyui: {
     styled: true,
-    themes: true,
+    themes: ["light", "dark"],
     base: true,
     utils: true,
     logs: true,

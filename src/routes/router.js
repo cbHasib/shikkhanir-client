@@ -5,6 +5,7 @@ import About from "../Pages/About/About";
 import Blog from "../Pages/Blog/Blog";
 import SingleBlog from "../Pages/Blog/SingleBlog";
 import Contact from "../Pages/Contact/Contact";
+import Checkout from "../Pages/Courses/Checkout/Checkout";
 import CourseDetails from "../Pages/Courses/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
 import Instructor from "../Pages/Courses/Instructor/Instructor";
@@ -68,11 +69,16 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/course/:slug",
+        loader: () => fetch("/test.json"),
         element: <CourseDetails />,
       },
       {
         path: "/instructor/:slug",
         element: <Instructor />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
     ],
   },

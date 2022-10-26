@@ -17,7 +17,7 @@ const CourseCard = ({ courseData }) => {
             {name ? name : " Donec lectus leo"}
           </h2>
           <p className="dark:text-gray-100 text-sm">
-            Curabitur luctus erat nunc, sed ullamcorper erat vestibulum eget.
+            Amazing course for students to get best results.
           </p>
         </div>
 
@@ -26,7 +26,7 @@ const CourseCard = ({ courseData }) => {
           type="button"
           className="btn btn-primary w-full p-0 m-0 min-h-[1rem] max-h-10"
         >
-          Enroll Course
+          View Details
         </Link>
       </div>
     </div>
