@@ -9,6 +9,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import EditProfile from "../Pages/User/EditProfile/EditProfile";
+import UserProfile from "../Pages/User/UserProfile/UserProfile";
 
 export const routes = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/profile",
+        element: <UserProfile />,
       },
       {
         path: "/update-profile",
