@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import useTitle from "../../hooks/useTitle";
 import BlogCard from "./BlogCard";
 
 const Blog = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+  useScrollToTop();
+  useTitle("Blog");
+
   return (
     <div className="p-[5%] py-10 text-center">
       <h2 className="font-bold text-4xl my-10">

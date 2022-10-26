@@ -1,6 +1,12 @@
 import React from "react";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import useTitle from "../../hooks/useTitle";
 
 const FAQs = () => {
+
+  useScrollToTop();
+  useTitle("FAQs");
+
   return (
     <div>
       <section class="bg-base-200 py-20">

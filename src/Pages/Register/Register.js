@@ -1,8 +1,59 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../assets/images/logo.png";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import useTitle from "../../hooks/useTitle";
+import { AuthContext } from "../../Contexts/UserContext";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  useScrollToTop();
+  useTitle("Register");
+
+  const { user, register, setLoading, loginWithGoogle, loginWithGitHub } =
+    useContext(AuthContext);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
+    const photoURL = form.photoURL.value;
+
+    if (password.length < 6) {
+      return toast.error("Password must be gater than 6 characters");
+    }
+
+    if (password !== confirmPassword) {
+      return toast.error("Password does not match");
+    }
+
+    register(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        toast.success("Account Registration Successful!");
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photoURL,
+        })
+          .then(() => {
+            toast.info("Profile Updated");
+          })
+          .catch((error) => {
+            toast.error(error.message);
+          });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
+
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2">
       <div className="w-full px-4 py-10 mx-auto xl:py-12 md:w-3/5 lg:w-4/5 xl:w-3/5">
@@ -50,13 +101,14 @@ const Register = () => {
             </span>
           </div>
         </div>
-        <form className="mt-8 space-y-4">
+        <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <label className="block">
               <span className="block mb-1 text-xs font-medium">Your Name</span>
               <input
                 className="input input-bordered w-full"
                 type="text"
+                name="name"
                 placeholder="Ex. Hasibul Hasan"
               />
             </label>
@@ -66,7 +118,8 @@ const Register = () => {
               <input
                 className="input input-bordered w-full"
                 type="email"
-                placeholder="Ex. james@bond.com"
+                name="email"
+                placeholder="Ex. hasib@shikkhanir.com"
                 inputMode="email"
                 required
               />
@@ -81,6 +134,7 @@ const Register = () => {
               <input
                 className="input input-bordered w-full"
                 type="password"
+                name="password"
                 placeholder="••••••••"
                 required
               />
@@ -92,6 +146,7 @@ const Register = () => {
               <input
                 className="input input-bordered w-full"
                 type="password"
+                name="confirmPassword"
                 placeholder="••••••••"
               />
             </label>
@@ -104,8 +159,8 @@ const Register = () => {
             <input
               className="input input-bordered w-full"
               type="url"
+              name="photoURL"
               placeholder="Ex: http://example.com/image.png"
-              required
             />
           </label>
 
@@ -144,7 +199,9 @@ const Register = () => {
             />
           </svg>
           <div>
-            <h2 className="text-xl font-medium text-purple-700">Premium account</h2>
+            <h2 className="text-xl font-medium text-purple-700">
+              Premium account
+            </h2>
             <p className="mt-1">Education for everyone.</p>
           </div>
         </div>
@@ -162,7 +219,9 @@ const Register = () => {
             />
           </svg>
           <div>
-            <h2 className="text-xl font-medium text-purple-700">Access Lifetime</h2>
+            <h2 className="text-xl font-medium text-purple-700">
+              Access Lifetime
+            </h2>
             <p className="mt-1">Get lifetime course access for free.</p>
           </div>
         </div>
@@ -180,7 +239,9 @@ const Register = () => {
             />
           </svg>
           <div>
-            <h2 className="text-xl font-medium text-purple-700">Premium Courses</h2>
+            <h2 className="text-xl font-medium text-purple-700">
+              Premium Courses
+            </h2>
             <p className="mt-1">Get all premium courses in one place.</p>
           </div>
         </div>

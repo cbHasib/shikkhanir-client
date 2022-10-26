@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Contexts/UserContext";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import useTitle from "../../hooks/useTitle";
 
 const Contact = () => {
+  useScrollToTop();
+  useTitle("Contact");
+
+  const test = useContext(AuthContext);
+  console.log(test);
+
   return (
     <section className="py-20 dark:bg-gray-800 dark:text-gray-50">
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2">

@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import useTitle from "../../hooks/useTitle";
 import ForgetPassword from "../User/ForgetPassword/ForgetPassword";
 
 const Login = () => {
+  useScrollToTop();
+  useTitle("Login");
   return (
     <section className="bg-base-200">
       <div className="px-5 py-12 mx-auto max-w-7xl sm:px-4">
@@ -84,7 +88,10 @@ const Login = () => {
           <Link to="/register" className="">
             Create an account
           </Link>
-          | <label htmlFor="forgetPassword-modal" className="cursor-pointer">Forgot password</label>
+          |{" "}
+          <label htmlFor="forgetPassword-modal" className="cursor-pointer">
+            Forgot password
+          </label>
         </div>
       </div>
       <ForgetPassword />

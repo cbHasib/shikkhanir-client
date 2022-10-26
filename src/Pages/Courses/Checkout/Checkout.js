@@ -1,6 +1,11 @@
 import React from "react";
+import useScrollToTop from "../../../hooks/useScrollToTop";
+import useTitle from "../../../hooks/useTitle";
 
 const Checkout = () => {
+  useScrollToTop();
+  useTitle("Checkout");
+
   return (
     <section>
       <h1 class="sr-only">Checkout</h1>

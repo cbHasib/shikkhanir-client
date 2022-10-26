@@ -3,8 +3,13 @@ import userAvatar from "../../../assets/images/user.png";
 import { FiEdit2 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import useTitle from "../../../hooks/useTitle";
+import useScrollToTop from "../../../hooks/useScrollToTop";
 
 const UserProfile = () => {
+  useScrollToTop();
+  useTitle("Profile");
+
   const user = false;
 
   const handleMailSend = () => {

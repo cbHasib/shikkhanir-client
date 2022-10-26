@@ -2,10 +2,15 @@ import React from "react";
 import { FiArrowRight, FiClock, FiDownload, FiUsers } from "react-icons/fi";
 import { FcApproval } from "react-icons/fc";
 import { Link, useLoaderData } from "react-router-dom";
+import useScrollToTop from "../../../hooks/useScrollToTop";
+import useTitle from "../../../hooks/useTitle";
 
 const CourseDetails = () => {
   const data = useLoaderData();
   const post = data.data.singleBlogPost.postBody1;
+
+  useScrollToTop();
+  useTitle("Course Details");
 
   return (
     <div className="flex flex-col-reverse justify-center lg:flex-row gap-5 lg:gap-10 p-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-14">

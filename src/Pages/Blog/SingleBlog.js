@@ -1,12 +1,12 @@
 import React from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import useTitle from "../../hooks/useTitle";
 
 const SingleBlog = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+  useScrollToTop();
+  useTitle("Blog Details");
 
   return (
     <div className="p-3 lg:p-10 bg-base-200">

@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import Footer from "../Common/Footer";
 import Header from "../Common/Header";
 
 const Error = () => {
+  useTitle("Page not found");
+
   return (
     <>
       <Header />

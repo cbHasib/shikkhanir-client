@@ -1,6 +1,10 @@
 import React from "react";
+import useScrollToTop from "../../../hooks/useScrollToTop";
+import useTitle from "../../../hooks/useTitle";
 
 const EditProfile = () => {
+  useScrollToTop();
+  useTitle("Blog");
   return (
     <section class="p-10 bg-base-200">
       <form class="container max-w-2xl mx-auto shadow-md md:w-3/4">
