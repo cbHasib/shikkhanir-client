@@ -1,40 +1,54 @@
 import React from "react";
 import userAvatar from "../../../assets/images/user.png";
-
+import { FiEdit2 } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UserProfile = () => {
-  const user = true;
+  const user = false;
 
   const handleMailSend = () => {
     console.log("send");
+    toast.success("Email sent successfully");
   };
+
+  const verified = false;
 
   return (
     <>
-      {user && user?.emailVerified ? (
-        <div className="max-w-lg p-8 sm:flex sm:space-x-6 bg-base-300 text-base-content m-20 mx-auto rounded-xl shadow-md">
-          <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
-            <img
-              src={user?.photoURL ? user?.photoURL : userAvatar}
-              alt=""
-              referrerPolicy="no-referrer"
-              className="object-cover object-center w-full h-full rounded-full dark:bg-gray-500"
-            />
-          </div>
-          <div className="flex flex-col space-y-4">
-            <div>
-              <h2 className="text-2xl font-semibold">
-                {user?.displayName || "Username"}
-              </h2>
-              <span className="text-sm dark:text-gray-400">
-                Status:{" "}
-                {user?.emailVerified ? (
-                  <span className="text-green-600 font-bold">Verified</span>
-                ) : (
-                  <span className="text-red-600 font-bold">Unverified</span>
-                )}
-              </span>
+      <div className="flex justify-center items-center py-20 px-5">
+        <div className="shadow-lg max-w-xl relative rounded-2xl w-full bg-white dark:bg-gray-800">
+          <img
+            alt="profile"
+            src="https://placeimg.com/700/300/nature"
+            className="rounded-t-lg h-44 object-cover w-full mb-4"
+          />
+          <div className="flex flex-col items-center justify-center p-4 -mt-20">
+            <div className="avatar">
+              <div className="block relative w-28 h-28 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img alt="profile" src={userAvatar} />
+              </div>
             </div>
+            <p className="text-gray-800 dark:text-white text-xl font-medium mt-2">
+              Hasibul Hasan
+            </p>
+
+            {verified ? (
+              <p className="text-green-500 font-medium text-sm mb-4">
+                Verified User
+              </p>
+            ) : (
+              <p className="text-red-500 font-medium text-sm mb-4 relative">
+                Unverified User
+                <span
+                  onClick={handleMailSend}
+                  className="text-xs absolute bottom-0 ml-1 w-full link text-blue-500"
+                >
+                  verify
+                </span>
+              </p>
+            )}
+
             <div className="space-y-1">
               <span className="flex items-center space-x-2">
                 <svg
@@ -48,41 +62,42 @@ const UserProfile = () => {
                     d="M274.6,25.623a32.006,32.006,0,0,0-37.2,0L16,183.766V496H496V183.766ZM464,402.693,339.97,322.96,464,226.492ZM256,51.662,454.429,193.4,311.434,304.615,256,268.979l-55.434,35.636L57.571,193.4ZM48,226.492,172.03,322.96,48,402.693ZM464,464H48V440.735L256,307.021,464,440.735Z"
                   ></path>
                 </svg>
-                <span className="dark:text-gray-400">{user?.email}</span>
-              </span>
-              <span className="flex items-center space-x-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-4 h-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z"
-                  />
-                </svg>
-
                 <span className="dark:text-gray-400">
-                  {user?.uid || "No Phone Number"}
+                  {user?.email || "hasib@shikkhanir.com"}
                 </span>
               </span>
             </div>
+
+            <div className="rounded-lg p-2 w-full mt-4">
+              <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-200">
+                <p className="flex items-center flex-col">
+                  Articles
+                  <span className="text-black dark:text-white font-bold">
+                    06
+                  </span>
+                </p>
+                <p className="flex items-center flex-col">
+                  Followers
+                  <span className="text-black dark:text-white font-bold">
+                    45
+                  </span>
+                </p>
+                <p></p>
+              </div>
+            </div>
           </div>
+
+          <Link
+            to="/update-profile"
+            className="tooltip tooltip-left absolute bottom-3 right-3 "
+            data-tip="Update Profile"
+          >
+            <div className="btn btn-primary text-center py-2 px-4 rounded-full h-14 w-14 inline-flex items-center justify-center duration-300">
+              <FiEdit2 className="h-5 w-5" />
+            </div>
+          </Link>
         </div>
-      ) : (
-        <div className="flex justify-center flex-col gap-5 items-center text-center h-[80vh]">
-          <h2 className="text-4xl font-bold text-red-600">
-            Verify Your Mail First
-          </h2>
-          <button className="btn btn-warning" onClick={handleMailSend}>
-            Send Verification Mail
-          </button>
-        </div>
-      )}
+      </div>
     </>
   );
 };
