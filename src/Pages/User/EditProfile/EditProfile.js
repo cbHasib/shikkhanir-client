@@ -30,6 +30,7 @@ const EditProfile = () => {
                   placeholder="Email"
                   value="hasibul.pbn@gmail.com"
                   disabled
+                  readOnly
                 />
               </div>
             </div>

@@ -5,6 +5,7 @@ import About from "../Pages/About/About";
 import Blog from "../Pages/Blog/Blog";
 import SingleBlog from "../Pages/Blog/SingleBlog";
 import Contact from "../Pages/Contact/Contact";
+import CourseDetails from "../Pages/Courses/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
 import Error from "../Pages/Error/Error";
 import FAQs from "../Pages/FAQs/FAQs";
@@ -63,6 +64,10 @@ export const routes = createBrowserRouter([
       {
         path: "/faq",
         element: <FAQs />,
+      },
+      {
+        path: "/course/:slug",
+        element: <CourseDetails />,
       },
     ],
   },
