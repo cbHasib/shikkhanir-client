@@ -16,6 +16,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import EditProfile from "../Pages/User/EditProfile/EditProfile";
 import UserProfile from "../Pages/User/UserProfile/UserProfile";
+import PrivateRouter from "./PrivateRouter";
 
 export const routes = createBrowserRouter([
   {
@@ -41,11 +42,19 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <UserProfile />,
+        element: (
+          <PrivateRouter>
+            <UserProfile />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/update-profile",
-        element: <EditProfile />,
+        element: (
+          <PrivateRouter>
+            <EditProfile />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/blog",
@@ -78,7 +87,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <Checkout />,
+        element: (
+          <PrivateRouter>
+            <Checkout />
+          </PrivateRouter>
+        ),
       },
     ],
   },

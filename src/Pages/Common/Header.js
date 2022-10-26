@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
+import { AuthContext } from "../../Contexts/UserContext";
 import HeaderUserProfile from "./HeaderUserProfile";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+
+  console.log(user);
   const [dark, setDark] = useState(false);
 
   const darkHandler = (darkSwitch) => {
@@ -79,7 +84,10 @@ const Header = () => {
                 </span>
               </Link>
 
-              <div className="lg:hidden" title="Hasibul Hasan">
+              <div
+                className="lg:hidden"
+                title={`${user?.displayName ? user?.displayName : ""}`}
+              >
                 <HeaderUserProfile />
               </div>
             </div>
@@ -229,12 +237,18 @@ const Header = () => {
                 </label>
               </div>
 
-              <div
-                className="tooltip tooltip-primary tooltip-bottom hidden lg:block ml-6"
-                data-tip="Hasibul Hasan"
-              >
-                <HeaderUserProfile />
-              </div>
+              {user ? (
+                <div
+                  className="tooltip tooltip-primary tooltip-bottom hidden lg:block ml-6"
+                  data-tip="Hasibul Hasan"
+                >
+                  <HeaderUserProfile />
+                </div>
+              ) : (
+                <div className="hidden lg:block ml-6">
+                  <HeaderUserProfile />
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../Contexts/UserContext";
 import useScrollToTop from "../../hooks/useScrollToTop";
 import useTitle from "../../hooks/useTitle";
 import ForgetPassword from "../User/ForgetPassword/ForgetPassword";
@@ -7,6 +9,37 @@ import ForgetPassword from "../User/ForgetPassword/ForgetPassword";
 const Login = () => {
   useScrollToTop();
   useTitle("Login");
+
+  const { user, signIn, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+
+
+  useEffect(() => {
+    if (user && user.uid) {
+      navigate(from, { replace: true });
+    }
+  }, [from, user, navigate]);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then((result) => {
+        form.reset();
+        navigate(from, { replace: true });
+        toast.success("Successfully Login!");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
+
   return (
     <section className="bg-base-200">
       <div className="px-5 py-12 mx-auto max-w-7xl sm:px-4">
@@ -14,12 +47,13 @@ const Login = () => {
           <h1 className="mb-6 text-2xl text-center font-semibold">
             Log in to your account
           </h1>
-          <form className="mb-8 space-y-4">
+          <form onSubmit={handleLogin} className="mb-8 space-y-4">
             <label className="block">
               <span className="block mb-1 text-xs font-medium">Your Email</span>
               <input
                 className="input input-bordered w-full"
                 type="email"
+                name="email"
                 placeholder="Ex. james@bond.com"
                 inputMode="email"
                 required
@@ -32,6 +66,7 @@ const Login = () => {
               <input
                 className="input input-bordered w-full"
                 type="password"
+                name="password"
                 placeholder="••••••••"
                 required
               />

@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import userAvatar from "../../../assets/images/user.png";
 import { FiEdit2 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import useTitle from "../../../hooks/useTitle";
 import useScrollToTop from "../../../hooks/useScrollToTop";
+import { AuthContext } from "../../../Contexts/UserContext";
+import { sendEmailVerification } from "firebase/auth";
 
 const UserProfile = () => {
   useScrollToTop();
   useTitle("Profile");
 
-  const user = false;
+  const { user } = useContext(AuthContext);
 
   const handleMailSend = () => {
-    console.log("send");
-    toast.success("Email sent successfully");
+    sendEmailVerification(user)
+      .then(() => {
+        toast.success("Email sent successfully. Check you inbox/spam.");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
-  const verified = false;
+  const verified = user?.emailVerified;
 
   return (
     <>
@@ -31,11 +38,14 @@ const UserProfile = () => {
           <div className="flex flex-col items-center justify-center p-4 -mt-20">
             <div className="avatar">
               <div className="block relative w-28 h-28 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img alt="profile" src={userAvatar} />
+                <img
+                  alt="profile"
+                  src={user?.photoURL ? user?.photoURL : userAvatar}
+                />
               </div>
             </div>
             <p className="text-gray-800 dark:text-white text-xl font-medium mt-2">
-              Hasibul Hasan
+              {user?.displayName ? user?.displayName : "username"}
             </p>
 
             {verified ? (

@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
+import { AuthContext } from "../Contexts/UserContext";
 import Footer from "../Pages/Common/Footer";
 import Header from "../Pages/Common/Header";
 import LoadingSpinner from "../Pages/Common/LoadingSpinner";
 import SideBar from "../Pages/Courses/SideBar";
 
 const CourseLayout = () => {
-  const loading = false;
+  const { loading } = useContext(AuthContext);
 
   return (
     <div>

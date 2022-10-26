@@ -4,6 +4,7 @@ import useTitle from "../../hooks/useTitle";
 import CourseCard from "./CourseCard";
 
 const Courses = () => {
+  
   useScrollToTop();
   useTitle("Courses");
 

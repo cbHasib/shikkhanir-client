@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiUser, FiUserPlus, FiVideo, FiLogOut } from "react-icons/fi";
 import { IconContext } from "react-icons";
+import { AuthContext } from "../../Contexts/UserContext";
 
 const SideBar = () => {
-  const user = true;
+  const {user} = useContext(AuthContext);
 
   return (
     <div className="h-full p-3 space-y-2 w-full bg-white dark:bg-base-300 dark:text-gray-100 ">
