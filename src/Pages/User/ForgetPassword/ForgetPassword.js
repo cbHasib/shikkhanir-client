@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { GrClose } from "react-icons/gr";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../../Contexts/UserContext";
 
 const ForgetPassword = () => {
+  const { resetPassword, setLoading } = useContext(AuthContext);
+  const handleResetPassword = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    resetPassword(email)
+      .then(() => {
+        toast.success("Reset email sent successfully. Check your inbox/spam.");
+        setLoading(false);
+      })
+      .catch(() => {
+        toast.error(
+          () => "Something went wrong. Check you email and try again."
+        );
+        setLoading(false);
+      });
+  };
   return (
     <>
       <input
@@ -37,7 +55,7 @@ const ForgetPassword = () => {
               </div>
 
               <div className="mt-5">
-                <form>
+                <form onSubmit={handleResetPassword}>
                   <div className="grid gap-y-4">
                     <div>
                       <label

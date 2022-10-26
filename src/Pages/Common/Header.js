@@ -8,7 +8,6 @@ import HeaderUserProfile from "./HeaderUserProfile";
 const Header = () => {
   const { user } = useContext(AuthContext);
 
-  console.log(user);
   const [dark, setDark] = useState(false);
 
   const darkHandler = (darkSwitch) => {
@@ -117,32 +116,7 @@ const Header = () => {
                       <span>Home</span>
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink
-                      onClick={navHandler}
-                      to={"/login"}
-                      className={({ isActive }) =>
-                        isActive
-                          ? "block md:px-4 transition text-primary"
-                          : "block md:px-4 transition hover:text-primary text-base-content"
-                      }
-                    >
-                      <span>Login</span>
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      onClick={navHandler}
-                      to={"/register"}
-                      className={({ isActive }) =>
-                        isActive
-                          ? "block md:px-4 transition text-primary"
-                          : "block md:px-4 transition hover:text-primary text-base-content"
-                      }
-                    >
-                      <span>Register</span>
-                    </NavLink>
-                  </li>
+
                   <li>
                     <NavLink
                       onClick={navHandler}
@@ -156,19 +130,7 @@ const Header = () => {
                       <span>Courses</span>
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink
-                      onClick={navHandler}
-                      to={"/faq"}
-                      className={({ isActive }) =>
-                        isActive
-                          ? "block md:px-4 transition text-primary"
-                          : "block md:px-4 transition hover:text-primary text-base-content"
-                      }
-                    >
-                      <span>FAQs</span>
-                    </NavLink>
-                  </li>
+
                   <li>
                     <NavLink
                       onClick={navHandler}
@@ -206,6 +168,19 @@ const Header = () => {
                       }
                     >
                       <span>Contact</span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      onClick={navHandler}
+                      to={"/faq"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block md:px-4 transition text-primary"
+                          : "block md:px-4 transition hover:text-primary text-base-content"
+                      }
+                    >
+                      <span>FAQs</span>
                     </NavLink>
                   </li>
                 </ul>

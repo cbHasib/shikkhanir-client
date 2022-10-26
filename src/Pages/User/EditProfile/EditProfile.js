@@ -61,6 +61,7 @@ const EditProfile = () => {
                 <img
                   alt={user?.displayName ? user?.displayName : "User Photo"}
                   src={user?.photoURL ? user?.photoURL : avatar}
+                  referrerPolicy="no-referrer"
                   className="mx-auto object-cover rounded-full h-16 w-16 "
                 />
               </a>

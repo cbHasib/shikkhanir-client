@@ -1,10 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useScrollToTop from "../../../hooks/useScrollToTop";
 import useTitle from "../../../hooks/useTitle";
 
 const Checkout = () => {
   useScrollToTop();
   useTitle("Checkout");
+
+  const navigate = useNavigate();
+
+  const submitHandle = (e) => {
+    e.preventDefault();
+    navigate("/success");
+  };
 
   return (
     <section>
@@ -48,30 +56,6 @@ const Checkout = () => {
                         </p>
                       </div>
                     </li>
-                    <li class="flex items-center justify-between py-4 px-6 bg-base-100 shadow-md">
-                      <div class="flex items-center">
-                        <img
-                          alt="Trainer"
-                          src="https://images.unsplash.com/photo-1565299999261-28ba859019bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                          class="h-16 w-16 flex-shrink-0 rounded-lg object-cover"
-                        />
-
-                        <div class="ml-4">
-                          <p class="text-sm">English Speaking</p>
-
-                          <p class="mt-1 space-y-1 text-xs text-gray-500">
-                            Quantity: 1
-                          </p>
-                        </div>
-                      </div>
-
-                      <div>
-                        <p class="text-sm">
-                          <span className="font-serif">৳</span> 0
-                          <small class="text-gray-500">x1</small>
-                        </p>
-                      </div>
-                    </li>
                   </ul>
 
                   <div className="flex justify-end">
@@ -87,7 +71,7 @@ const Checkout = () => {
 
           <div class="bg-base-100 py-12 md:py-24">
             <div class="mx-auto max-w-lg px-4 lg:px-8">
-              <form class="grid grid-cols-6 gap-4">
+              <form onSubmit={submitHandle} class="grid grid-cols-6 gap-4">
                 <div class="col-span-3">
                   <label
                     class="mb-1 block text-sm text-gray-600"

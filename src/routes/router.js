@@ -9,6 +9,7 @@ import Checkout from "../Pages/Courses/Checkout/Checkout";
 import CourseDetails from "../Pages/Courses/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
 import Instructor from "../Pages/Courses/Instructor/Instructor";
+import SuccessEnroll from "../Pages/Courses/SuccessEnroll/SuccessEnroll";
 import Error from "../Pages/Error/Error";
 import FAQs from "../Pages/FAQs/FAQs";
 import Home from "../Pages/Home/Home";
@@ -90,6 +91,14 @@ export const routes = createBrowserRouter([
         element: (
           <PrivateRouter>
             <Checkout />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/success",
+        element: (
+          <PrivateRouter>
+            <SuccessEnroll />
           </PrivateRouter>
         ),
       },

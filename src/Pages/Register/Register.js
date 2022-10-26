@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../assets/images/logo.png";
 import useScrollToTop from "../../hooks/useScrollToTop";
@@ -13,6 +13,15 @@ const Register = () => {
 
   const { user, register, setLoading, loginWithGoogle, loginWithGitHub } =
     useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (user && user.uid) {
+      navigate(from, { replace: true });
+    }
+  }, [from, user, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -54,6 +63,17 @@ const Register = () => {
       });
   };
 
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
+      .then(() => {
+        toast.success("Registration Successful");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
+
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2">
       <div className="w-full px-4 py-10 mx-auto xl:py-12 md:w-3/5 lg:w-4/5 xl:w-3/5">
@@ -62,7 +82,10 @@ const Register = () => {
         </h1>
         <div className="mt-8 space-y-10">
           <div className="grid grid-cols-2 gap-4">
-            <button className="py-3 btn gap-2 btn-accent">
+            <button
+              onClick={handleGoogleLogin}
+              className="py-3 btn gap-2 btn-accent"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

@@ -17,6 +17,7 @@ const HeaderUserProfile = () => {
         <div className="w-10 rounded-full">
           <img
             src={user?.photoURL ? user?.photoURL : avatar}
+            referrerPolicy="no-referrer"
             alt={user?.displayName ? user?.displayName : "User Avatar"}
           />
         </div>
@@ -32,6 +33,7 @@ const HeaderUserProfile = () => {
               <img
                 className="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
                 src={user?.photoURL ? user?.photoURL : avatar}
+                referrerPolicy="no-referrer"
                 alt={user?.displayName ? user?.displayName : "User Avatar"}
               />
               <div className="mx-1 overflow-hidden">

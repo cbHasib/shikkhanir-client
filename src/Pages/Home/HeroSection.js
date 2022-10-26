@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Contexts/UserContext";
 
 const HeroSection = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div>
       <section className="relative bg-[url(https://i.ibb.co/7S1rLTW/bg.jpg)] bg-cover bg-center bg-no-repeat">
@@ -21,21 +24,39 @@ const HeroSection = () => {
               ShikkhaNir. Make yourself talented!
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4 text-center">
-              <Link
-                to="/courses"
-                className="block w-full rounded bg-purple-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring active:bg-purple-500 sm:w-auto"
-              >
-                See Course
-              </Link>
+            {user && user.uid ? (
+              <div className="mt-8 flex flex-wrap gap-4 text-center">
+                <Link
+                  to="/courses"
+                  className="block w-full rounded bg-purple-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring active:bg-purple-500 sm:w-auto"
+                >
+                  See Course
+                </Link>
 
-              <Link
-                to="/profile"
-                className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-purple-600 shadow hover:text-purple-700 focus:outline-none focus:ring active:text-purple-500 sm:w-auto"
-              >
-                Profile
-              </Link>
-            </div>
+                <Link
+                  to="/profile"
+                  className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-purple-600 shadow hover:text-purple-700 focus:outline-none focus:ring active:text-purple-500 sm:w-auto"
+                >
+                  Profile
+                </Link>
+              </div>
+            ) : (
+              <div className="mt-8 flex flex-wrap gap-4 text-center">
+                <Link
+                  to="/register"
+                  className="block w-full rounded bg-purple-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring active:bg-purple-500 sm:w-auto"
+                >
+                  Register
+                </Link>
+
+                <Link
+                  to="/login"
+                  className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-purple-600 shadow hover:text-purple-700 focus:outline-none focus:ring active:text-purple-500 sm:w-auto"
+                >
+                  Login
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </section>

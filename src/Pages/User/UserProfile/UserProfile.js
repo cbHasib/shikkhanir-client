@@ -41,6 +41,7 @@ const UserProfile = () => {
                 <img
                   alt="profile"
                   src={user?.photoURL ? user?.photoURL : userAvatar}
+                  referrerPolicy="no-referrer"
                 />
               </div>
             </div>

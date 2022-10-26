@@ -10,11 +10,10 @@ const Login = () => {
   useScrollToTop();
   useTitle("Login");
 
-  const { user, signIn, setLoading } = useContext(AuthContext);
+  const { user, signIn, setLoading, loginWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-
 
   useEffect(() => {
     if (user && user.uid) {
@@ -33,6 +32,17 @@ const Login = () => {
         form.reset();
         navigate(from, { replace: true });
         toast.success("Successfully Login!");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
+      .then((result) => {
+        toast.success(`Welcome back ${result.user.displayName}!`);
       })
       .catch((error) => {
         toast.error(error.message);
@@ -90,7 +100,10 @@ const Login = () => {
               </span>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <button className="py-3 btn gap-2 btn-accent">
+              <button
+                onClick={handleGoogleLogin}
+                className="py-3 btn gap-2 btn-accent"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
