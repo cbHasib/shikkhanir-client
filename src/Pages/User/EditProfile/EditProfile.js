@@ -39,7 +39,6 @@ const EditProfile = () => {
     updatePassword(user, newPassword)
       .then(() => {
         toast.success("Password Updated");
-        newPassword.value = "";
       })
       .catch((error) => {
         toast.error(error.message);
