@@ -79,9 +79,7 @@ const Header = () => {
                 </span>
               </Link>
 
-              <div
-                title="Hasibul Hasan"
-              >
+              <div className="lg:hidden" title="Hasibul Hasan">
                 <HeaderUserProfile />
               </div>
             </div>

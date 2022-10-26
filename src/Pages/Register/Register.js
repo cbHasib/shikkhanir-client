@@ -4,12 +4,12 @@ import logo from "../../assets/images/logo.png";
 
 const Register = () => {
   return (
-    <section class="grid grid-cols-1 lg:grid-cols-2">
-      <div class="w-full px-4 py-10 mx-auto xl:py-12 md:w-3/5 lg:w-4/5 xl:w-3/5">
-        <h1 class="mb-4 -mt-3 text-2xl font-bold text-left md:text-4xl">
+    <section className="grid grid-cols-1 lg:grid-cols-2">
+      <div className="w-full px-4 py-10 mx-auto xl:py-12 md:w-3/5 lg:w-4/5 xl:w-3/5">
+        <h1 className="mb-4 -mt-3 text-2xl font-bold text-left md:text-4xl">
           Sign Up for free
         </h1>
-        <div class="mt-8 space-y-10">
+        <div className="mt-8 space-y-10">
           <div className="grid grid-cols-2 gap-4">
             <button className="py-3 btn gap-2 btn-accent">
               <svg
@@ -39,11 +39,11 @@ const Register = () => {
             </button>
           </div>
           <div
-            class="text-center border-b border-gray-200"
+            className="text-center border-b border-gray-200"
             style={{ lineHeight: "0px" }}
           >
             <span
-              class="p-2 text-xs font-semibold tracking-wide text-gray-600 uppercase bg-white"
+              className="p-2 text-xs font-semibold tracking-wide text-gray-600 uppercase bg-white"
               style={{ lineHeight: "0px" }}
             >
               Or
@@ -115,73 +115,73 @@ const Register = () => {
             value="Register"
           />
         </form>
-        <div class="pt-6 mt-6 text-sm font-medium border-t border-gray-200 text-center">
+        <div className="pt-6 mt-6 text-sm font-medium border-t border-gray-200 text-center">
           Already have an account?
-          <Link to="/login" class="text-purple-700 hover:text-purple-900">
+          <Link to="/login" className="text-purple-700 hover:text-purple-900">
             {" "}
             Login
           </Link>
         </div>
       </div>
-      <div class="px-4 py-20 space-y-10 bg-base-200 xl:py-12 md:px-40 lg:px-20 xl:px-40 flex flex-col justify-center">
+      <div className="px-4 py-20 space-y-10 bg-base-200 xl:py-12 md:px-40 lg:px-20 xl:px-40 flex flex-col justify-center">
         <Link className="flex gap-2 items-center" title="Go to Home Page">
           <img src={logo} alt="ShikkhaNir Logo" className="h-8 w-8 inline " />
           <p className="font-bold text-2xl">
             Shikkha<span className="text-primary">Nir</span>
           </p>
         </Link>
-        <div class="flex space-x-3">
+        <div className="flex space-x-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            class="flex-none w-6 h-6 mt-1 text-purple-700"
+            className="flex-none w-6 h-6 mt-1 text-purple-700"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
           <div>
-            <h2 class="text-xl font-medium text-purple-700">Premium account</h2>
-            <p class="mt-1">Education for everyone.</p>
+            <h2 className="text-xl font-medium text-purple-700">Premium account</h2>
+            <p className="mt-1">Education for everyone.</p>
           </div>
         </div>
-        <div class="flex space-x-3">
+        <div className="flex space-x-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            class="flex-none w-6 h-6 mt-1 text-purple-700"
+            className="flex-none w-6 h-6 mt-1 text-purple-700"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
           <div>
-            <h2 class="text-xl font-medium text-purple-700">Access Lifetime</h2>
-            <p class="mt-1">Get lifetime course access for free.</p>
+            <h2 className="text-xl font-medium text-purple-700">Access Lifetime</h2>
+            <p className="mt-1">Get lifetime course access for free.</p>
           </div>
         </div>
-        <div class="flex space-x-3">
+        <div className="flex space-x-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            class="flex-none w-6 h-6 mt-1 text-purple-700"
+            className="flex-none w-6 h-6 mt-1 text-purple-700"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
           <div>
-            <h2 class="text-xl font-medium text-purple-700">Premium Courses</h2>
-            <p class="mt-1">Get all premium courses in one place.</p>
+            <h2 className="text-xl font-medium text-purple-700">Premium Courses</h2>
+            <p className="mt-1">Get all premium courses in one place.</p>
           </div>
         </div>
       </div>

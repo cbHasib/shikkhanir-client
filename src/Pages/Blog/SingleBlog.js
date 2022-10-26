@@ -93,12 +93,12 @@ const SingleBlog = () => {
           </div>
           <div className="">
             <p>
-              Easy to set up for real, you can make it work in less than 10sec!
+              hEasy {`\n\n` } to set up for real, you can make it work in less than 10sec!
               Super easy to customize RTL support Swipe to close 👌 Beautiful by
               default Can choose swipe direction Super easy to use an animation
               of your choice Can display a react component inside the toast! Has
               onOpen and onClose hooks. Both can access the props passed to the
-              react component rendered inside the toast Can remove a toast
+              react component rendered inside the toast Can remove a {"\n"} {"\n"}{"\n"}{"\n"}{"\n"} toast
               programmatically Define behavior per toast Pause toast when the
               window loses focus 👁 Fancy progress bar to display the remaining
               time Possibility to update a toast You can control the progress

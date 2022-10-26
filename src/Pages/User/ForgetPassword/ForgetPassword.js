@@ -41,7 +41,7 @@ const ForgetPassword = () => {
                   <div className="grid gap-y-4">
                     <div>
                       <label
-                        for="email"
+                        htmlFor="email"
                         className="block text-sm font-bold ml-1 mb-2 dark:text-white"
                       >
                         Email address
@@ -53,7 +53,7 @@ const ForgetPassword = () => {
                           name="email"
                           className="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm"
                           required
-                          ariaDescribedby="email-error"
+                          aria-describedby="email-error"
                         />
                       </div>
                       <p

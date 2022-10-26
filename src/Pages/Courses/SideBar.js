@@ -1,12 +1,14 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { CiYoutube } from "react-icons/ci";
-import { HiOutlineUser, HiOutlineUserPlus } from "react-icons/hi2";
+import { CiUser, CiYoutube } from "react-icons/ci";
+import { HiOutlineUserPlus } from "react-icons/hi2";
 import { IconContext } from "react-icons";
 import { useState } from "react";
 
 const SideBar = () => {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
+
+ 
 
   return (
     <div className="h-full p-3 space-y-2 w-full bg-white dark:bg-base-300 dark:text-gray-100 ">
@@ -108,7 +110,7 @@ const SideBar = () => {
                   >
                     <IconContext.Provider value={{ size: "1.25rem" }}>
                       <div>
-                        <HiOutlineUser />
+                        <CiUser />
                       </div>
                     </IconContext.Provider>
                     <span>Profile</span>
@@ -152,7 +154,7 @@ const SideBar = () => {
                   >
                     <IconContext.Provider value={{ size: "1.25rem" }}>
                       <div>
-                        <HiOutlineUser />
+                        <CiUser />
                       </div>
                     </IconContext.Provider>
                     <span>Login</span>
