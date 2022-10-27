@@ -60,12 +60,12 @@ const Header = () => {
                   <div
                     aria-hidden="true"
                     id="line"
-                    className="m-auto h-0.5 w-5 rounded transition duration-300 bg-primary"
+                    className="m-auto h-0.5 w-5 rounded transition duration-300 bg-primary dark:bg-white"
                   ></div>
                   <div
                     aria-hidden="true"
                     id="line2"
-                    className="m-auto mt-2 h-0.5 w-5 rounded transition duration-300 bg-primary"
+                    className="m-auto mt-2 h-0.5 w-5 rounded transition duration-300 bg-primary dark:bg-white"
                   ></div>
                 </label>
               </div>
