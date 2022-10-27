@@ -1,34 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 import useScrollToTop from "../../hooks/useScrollToTop";
 import useTitle from "../../hooks/useTitle";
 
 const SingleBlog = () => {
+  const blog = useLoaderData().data;
+
+  const { author, image, postBody, publishDate, readTime, title } = blog;
+
   useScrollToTop();
-  useTitle("Blog Details");
+  useTitle(title);
 
   return (
     <div className="p-3 lg:p-10 bg-base-200">
       <div className="w-[95%] lg:w-[70%] mx-auto rounded-2xl overflow-hidden pb-20 shadow-md bg-base-100">
         <img
           className="shadow border border-base-300 w-full h-80 object-cover rounded-t-2xl"
-          src="http://localhost:3000/static/media/logo.dd6573f397e325aeb96e.png"
-          alt="title"
+          src={image}
+          alt={title}
         />
         <div className="px-10 lg:px-20">
-          <h1 className="text-2xl lg:text-4xl font-semibold mt-10">Ttile</h1>
+          <h1 className="text-2xl lg:text-4xl font-semibold mt-10">{title}</h1>
           <div className="pb-10 pt-4 flex justify-between">
             <div>
               <div className="text-base">
                 Posted by
                 <Link to="/about" className="text-primary hover:text-secondary">
                   {" "}
-                  Hasibul Hasan
+                  {author}
                 </Link>
               </div>
               <div className="flex gap-2 text-sm text-base-content">
-                <span>Date</span> • <span>Time min read</span>
+                <span>{publishDate}</span> • <span>{readTime} min read</span>
               </div>
             </div>
             <div className="flex gap-2 items-center justify-end">
@@ -91,30 +95,7 @@ const SingleBlog = () => {
               </div>
             </div>
           </div>
-          <div className="">
-            <p>
-              hEasy {`\n\n` } to set up for real, you can make it work in less than 10sec!
-              Super easy to customize RTL support Swipe to close 👌 Beautiful by
-              default Can choose swipe direction Super easy to use an animation
-              of your choice Can display a react component inside the toast! Has
-              onOpen and onClose hooks. Both can access the props passed to the
-              react component rendered inside the toast Can remove a {"\n"} {"\n"}{"\n"}{"\n"}{"\n"} toast
-              programmatically Define behavior per toast Pause toast when the
-              window loses focus 👁 Fancy progress bar to display the remaining
-              time Possibility to update a toast You can control the progress
-              bar a la nprogress 😲 You can limit the number of toast displayed
-              at the same time Dark mode 🌒 Colored theme Promise support And
-              much more ! #Contribute Show your ❤️ and support by giving a ⭐.
-              Any suggestions are welcome! Take a look at the contributing
-              guide. You can also find me on reactiflux. My pseudo is Fadi.
-              #Contributors #Code Contributors This project exists thanks to all
-              the people who contribute. [Contribute]. #Financial Contributors
-              Become a financial contributor and help us sustain our community.
-              [Contribute] #Individuals #Organizations Support this project with
-              your organization. Your logo will show up here with a link to your
-              website. [Contribute] #License Licensed under MIT
-            </p>
-          </div>
+          <div dangerouslySetInnerHTML={{ __html: postBody }}></div>
         </div>
       </div>
     </div>

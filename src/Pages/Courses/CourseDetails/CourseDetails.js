@@ -101,7 +101,7 @@ const CourseDetails = () => {
                   onClick={toPdf}
                   className="btn btn-warning w-full col-span-7 lg:col-span-3  gap-2"
                 >
-                  Download PDF
+                  Details PDF
                   <FiDownload className="w-5 h-5" />
                 </button>
               )}
