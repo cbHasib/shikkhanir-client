@@ -6,6 +6,7 @@ import Blog from "../Pages/Blog/Blog";
 import SingleBlog from "../Pages/Blog/SingleBlog";
 import Contact from "../Pages/Contact/Contact";
 import Checkout from "../Pages/Courses/Checkout/Checkout";
+import CourseContent from "../Pages/Courses/CourseContent/CourseContent";
 import CourseDetails from "../Pages/Courses/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
 import Instructor from "../Pages/Courses/Instructor/Instructor";
@@ -87,6 +88,22 @@ export const routes = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`${process.env.REACT_APP_serverURL}/course/${params.id}`),
         element: <CourseDetails />,
+      },
+      {
+        path: "/courses/course-content/:courseId/:slug",
+        loader: ({ params }) =>
+          fetch(
+            `${process.env.REACT_APP_serverURL}/course-content/${params.courseId}`
+          ),
+        element: <CourseContent />,
+      },
+      {
+        path: "/courses/course-content/:courseId/:slug/:videoSlug",
+        loader: ({ params }) =>
+          fetch(
+            `${process.env.REACT_APP_serverURL}/course-content/${params.courseId}`
+          ),
+        element: <CourseContent />,
       },
       {
         path: "/instructor/:id/:slug",
