@@ -23,7 +23,7 @@ In the project directory, you will find these feature: \
 ## **`Useful Links`**
 
 **1. [Github Client Site Repository](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-cbHasib)** \
-**2. [Github Server SIte Repository](#)** \
+**2. [Github Server SIte Repository](https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-cbHasib)** \
 **3. [Live Website](https://shikkhanir-client.web.app/)**
 
 <br>
@@ -37,6 +37,5 @@ ShikkhaNir acknowledge the hard work and contribution of the following third par
 **3. [Firebase](https://firebase.google.com/) - Using for authentication and deploy** \
 **4. [React Router](https://reactrouter.com/) - Client side routing** \
 **5. [React Toastify](https://fkhadra.github.io/react-toastify/) - ReactTostify for Showing Toast to the user**\
-**6. [SwiperJS](https://swiperjs.com/) - SwiperJS Creating Amazing Slider**\
-**7. [React Icons](https://react-icons.github.io/react-icons/) - React Icons for using various icons**
+**6. [React Icons](https://react-icons.github.io/react-icons/) - React Icons for using various icons**\
 **7. [React to PDF](https://github.com/ivmarcos/react-to-pdf) - Making PDF for a website**
