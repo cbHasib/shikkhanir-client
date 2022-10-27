@@ -6,7 +6,7 @@ const CourseCard = ({ courseData }) => {
 
   return (
     <div className="max-w-[330px] bg-white rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100 p-3 relative flex flex-col justify-between text-center">
-      <div className="bg-info p-1.5 rounded-full absolute top-1 right-1">
+      <div className="bg-info dark:bg-[#019087] p-1.5 rounded-full absolute top-1 right-1">
         $33
       </div>
 
