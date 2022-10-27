@@ -5,8 +5,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import useScrollToTop from "../../../hooks/useScrollToTop";
 import useTitle from "../../../hooks/useTitle";
 import Pdf from "react-to-pdf";
-import avatar from "../../../assets/images/user.png";
 import "./CourseDetails.css";
+import InstructorCard from "./InstructorCard";
 
 const ref = React.createRef();
 
@@ -36,29 +36,7 @@ const CourseDetails = () => {
         </div>
 
         {/* Instructor Details  */}
-        <div>
-          <h2 className="mt-5 text-2xl mb-1 font-medium">Instructor</h2>
-          <div>
-            <Link
-              to="/instructor/hasibul-hasan"
-              className="shadow border dark:border-gray-600 select-none cursor-pointer bg-white dark:bg-gray-800 rounded-md flex flex-1 items-center px-5 py-4"
-            >
-              <div className="flex flex-col  justify-center items-center mr-4 avatar ">
-                <div className="block relative w-16 rounded-full ring">
-                  <img alt="profile" src={avatar} className="mx-auto" />
-                </div>
-              </div>
-              <div className="flex-1 pl-1 md:mr-16">
-                <div className="font-medium dark:text-white text-lg">
-                  Hasibul Hasan
-                </div>
-                <div className="text-gray-600 dark:text-gray-200 text-sm">
-                  Junior Web Developer at NexusHand
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
+        <InstructorCard instructorId={2} />
 
         {/* About Course */}
         <div>
