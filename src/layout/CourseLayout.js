@@ -4,7 +4,7 @@ import { AuthContext } from "../Contexts/UserContext";
 import Footer from "../Pages/Common/Footer";
 import Header from "../Pages/Common/Header";
 import LoadingSpinner from "../Pages/Common/LoadingSpinner";
-import SideBar from "../Pages/Courses/SideBar";
+import SideBar from "../Pages/Courses/SideBar/SideBar";
 
 const CourseLayout = () => {
   const { loading } = useContext(AuthContext);
@@ -16,7 +16,7 @@ const CourseLayout = () => {
         <div className="hidden lg:block">
           <SideBar />
         </div>
-        <div className="col-span-4">
+        <div className="col-span-4 bg-base-200">
           {loading ? <LoadingSpinner /> : <Outlet />}
         </div>
         <div className="lg:hidden col-span-4 px-5 py-3">

@@ -19,6 +19,7 @@ import EditProfile from "../Pages/User/EditProfile/EditProfile";
 import UserProfile from "../Pages/User/UserProfile/UserProfile";
 import PrivateRouter from "./PrivateRouter";
 
+
 export const routes = createBrowserRouter([
   {
     path: "/",
@@ -78,7 +79,7 @@ export const routes = createBrowserRouter([
         element: <FAQs />,
       },
       {
-        path: "/course/:slug",
+        path: "/course/:id/:slug",
         loader: () => fetch("/test.json"),
         element: <CourseDetails />,
       },
@@ -109,11 +110,17 @@ export const routes = createBrowserRouter([
     element: <CourseLayout />,
     children: [
       {
-        path: "/courses",
+        index: true,
+        loader: async () => fetch("http://localhost:5000/courses"),
         element: <Courses />,
       },
       {
-        path: "/courses/:Id",
+        path: "/courses/:Id/:cat_slug",
+        loader: async ({ params }) =>
+          {
+            
+            return fetch(`http://localhost:5000/category/${params.Id}`)
+          },
         element: <Courses />,
       },
     ],

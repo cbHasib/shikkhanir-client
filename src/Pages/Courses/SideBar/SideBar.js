@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { FiUser, FiUserPlus, FiVideo, FiLogOut } from "react-icons/fi";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FiUser, FiUserPlus, FiLogOut } from "react-icons/fi";
 import { IconContext } from "react-icons";
-import { AuthContext } from "../../Contexts/UserContext";
-import avatar from "../../assets/images/user.png";
+import avatar from "../../../assets/images/user.png";
+import { AuthContext } from "../../../Contexts/UserContext";
+import SideBarCategory from "./SideBarCategory";
 
 const SideBar = () => {
   const { user, logout } = useContext(AuthContext);
+  const [categories, setCategories] = useState([]);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,6 +20,12 @@ const SideBar = () => {
   const handleLogout = () => {
     logout();
   };
+
+  useEffect(() => {
+    fetch("http://localhost:5000/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data.data));
+  }, []);
 
   return (
     <div className="h-full p-3 space-y-2 w-full bg-white dark:bg-base-300 dark:text-gray-100 ">
@@ -50,61 +58,9 @@ const SideBar = () => {
         </h2>
         <div className="divide-y dark:divide-gray-700">
           <ul className="pt-2 pb-4 space-y-1 text-sm">
-            <li>
-              <NavLink
-                rel="noopener noreferrer"
-                to="/courses/1"
-                className={({ isActive }) =>
-                  isActive
-                    ? "flex items-center p-2 space-x-3 my-1 rounded-md shadow-md bg-primary text-white"
-                    : "flex items-center p-2 space-x-3 rounded-md  hover:bg-primary hover:text-white duration-300 bg-base-100  my-1"
-                }
-              >
-                <IconContext.Provider value={{ size: "1.4rem" }}>
-                  <div>
-                    <FiVideo />
-                  </div>
-                </IconContext.Provider>
-
-                <span>SSC Physics</span>
-              </NavLink>
-
-              <NavLink
-                rel="noopener noreferrer"
-                to="/courses/2"
-                className={({ isActive }) =>
-                  isActive
-                    ? "flex items-center p-2 space-x-3 my-1 rounded-md shadow-md bg-primary text-white"
-                    : "flex items-center p-2 space-x-3 rounded-md  hover:bg-primary hover:text-white duration-300 bg-base-100  my-1"
-                }
-              >
-                <IconContext.Provider value={{ size: "1.4rem" }}>
-                  <div>
-                    <FiVideo />
-                  </div>
-                </IconContext.Provider>
-
-                <span>SSC Physics</span>
-              </NavLink>
-
-              <NavLink
-                rel="noopener noreferrer"
-                to="/courses/3"
-                className={({ isActive }) =>
-                  isActive
-                    ? "flex items-center p-2 space-x-3 my-1 rounded-md shadow-md bg-primary text-white"
-                    : "flex items-center p-2 space-x-3 rounded-md  hover:bg-primary hover:text-white duration-300 bg-base-100  my-1"
-                }
-              >
-                <IconContext.Provider value={{ size: "1.4rem" }}>
-                  <div>
-                    <FiVideo />
-                  </div>
-                </IconContext.Provider>
-
-                <span>SSC Physics</span>
-              </NavLink>
-            </li>
+            {categories.map((category) => (
+              <SideBarCategory key={category.cat_id} category={category} />
+            ))}
           </ul>
 
           {user ? (

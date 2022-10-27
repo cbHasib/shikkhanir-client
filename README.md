@@ -16,7 +16,7 @@ In the project directory, you will find these feature: \
 <span style="color:#00C49F">**7. Blog** </span> \
 <span style="color:#00C49F">**8. Single Blog Template** </span> \
 <span style="color:#00C49F">**9. Profile Page** </span> \
-<span style="color:#00C49F">**10. Profile Can be Updated** </span> 
+<span style="color:#00C49F">**10. Profile Can be Updated** </span>
 
 <br>
 
