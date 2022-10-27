@@ -17,8 +17,7 @@ const CourseDetails = () => {
   const {
     courseAbout,
     course_description,
-    // course_id,
-    // course_slug,
+    course_id,
     course_title,
     enrolledStudent,
     hoursRequired,
@@ -89,7 +88,7 @@ const CourseDetails = () => {
 
           <div className="grid grid-cols-7 gap-2">
             <Link
-              to="/checkout"
+              to={`/checkout/${course_id}`}
               className="btn btn-primary w-full col-span-7 lg:col-span-4 gap-4"
             >
               Premium Access <FiArrowRight className="w-5 h-5" />{" "}

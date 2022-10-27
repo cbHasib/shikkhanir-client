@@ -21,8 +21,8 @@ const SingleBlog = () => {
           alt={title}
         />
         <div className="px-10 lg:px-20">
-          <h1 className="text-2xl lg:text-4xl font-semibold mt-10">{title}</h1>
-          <div className="pb-10 pt-4 flex justify-between">
+          <h1 className="text-2xl lg:text-4xl font-semibold mt-10 text-center md:text-left">{title}</h1>
+          <div className="pb-10 pt-4 flex flex-col md:flex-row items-center gap-5 justify-between">
             <div>
               <div className="text-base">
                 Posted by

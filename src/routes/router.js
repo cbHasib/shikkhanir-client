@@ -93,7 +93,9 @@ export const routes = createBrowserRouter([
         element: <Instructor />,
       },
       {
-        path: "/checkout",
+        path: "/checkout/:id",
+        loader: ({ params }) =>
+          fetch(`${process.env.REACT_APP_serverURL}/course/${params.id}`),
         element: (
           <PrivateRouter>
             <Checkout />
