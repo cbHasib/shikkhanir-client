@@ -13,6 +13,8 @@ const ref = React.createRef();
 
 const CourseDetails = () => {
   const course = useLoaderData().data;
+
+
   const {
     courseAbout,
     course_description,
@@ -66,7 +68,7 @@ const CourseDetails = () => {
               className="px-5 py-4"
               dangerouslySetInnerHTML={{ __html: courseAbout }}
             ></div>
-            
+            <li className="hidden list-disc list-inside"></li>
           </div>
         </div>
       </div>
