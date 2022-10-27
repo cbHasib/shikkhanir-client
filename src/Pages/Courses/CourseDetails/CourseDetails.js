@@ -66,11 +66,12 @@ const CourseDetails = () => {
               className="px-5 py-4"
               dangerouslySetInnerHTML={{ __html: courseAbout }}
             ></div>
+            
           </div>
         </div>
       </div>
 
-      <div className="w-full lg:min-w-[470px] lg:max-w-2xl border border-base-300 rounded-lg lg:sticky lg:top-20 overflow-hidden h-fit dark:bg-gray-800">
+      <div className="w-full lg:max-w-[470px] border border-base-300 rounded-lg lg:sticky lg:top-20 overflow-hidden h-fit dark:bg-gray-800">
         <div className="rounded-t-lg overflow-hidden duration-300 shadow relative course-image-box courseThumb">
           <figure className="relative thumb-courseThumb overflow-hidden ">
             <img
