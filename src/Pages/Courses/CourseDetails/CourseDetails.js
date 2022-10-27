@@ -1,18 +1,32 @@
 import React from "react";
 import { FiArrowRight, FiClock, FiDownload, FiUsers } from "react-icons/fi";
-import { FcApproval } from "react-icons/fc";
 import { Link, useLoaderData } from "react-router-dom";
 import useScrollToTop from "../../../hooks/useScrollToTop";
 import useTitle from "../../../hooks/useTitle";
 import Pdf from "react-to-pdf";
 import "./CourseDetails.css";
 import InstructorCard from "./InstructorCard";
+import CourseFeatures from "./CourseFeatures";
+import CourseMainFeature from "./CourseMainFeature";
 
 const ref = React.createRef();
 
 const CourseDetails = () => {
-  const data = useLoaderData();
-  const post = data.data.singleBlogPost.postBody1;
+  const course = useLoaderData().data;
+  const {
+    courseAbout,
+    course_description,
+    // course_id,
+    // course_slug,
+    course_title,
+    enrolledStudent,
+    hoursRequired,
+    instructorId,
+    learnFeatures,
+    mainFeatures,
+    price,
+    thumbnail,
+  } = course;
 
   useScrollToTop();
   useTitle("Course Details");
@@ -26,17 +40,13 @@ const CourseDetails = () => {
         {/* Course Title and Short Description */}
         <div>
           <h1 className="mb-2 text-3xl font-semibold lg:font-bold">
-            Spoken English for Kids
+            {course_title}
           </h1>
-          <h2>
-            English course designed to teach kids how to speak English in real
-            life situations. Enroll now to keep your kids ahead with English
-            Speaking and Reading skills.
-          </h2>
+          <h2>{course_description}</h2>
         </div>
 
         {/* Instructor Details  */}
-        <InstructorCard instructorId={2} />
+        <InstructorCard instructorId={instructorId} />
 
         {/* About Course */}
         <div>
@@ -45,86 +55,17 @@ const CourseDetails = () => {
           </h2>
           <div className="border dark:border-gray-600  bg-white dark:bg-gray-800 rounded-md">
             <div className="px-5 py-4">
-              <p className="flex items-center gap-2 leading-5 my-2">
-                <span>
-                  <FcApproval className="w-5 h-5" />{" "}
-                </span>
-                Methods and techniques to improve conversational English.
-              </p>
-              <p className="flex items-center gap-2 leading-5 my-2">
-                <span>
-                  <FcApproval className="w-5 h-5" />{" "}
-                </span>
-                To be able to speak English with their teachers, friends, and
-                family members in their daily life.
-              </p>
+              {learnFeatures.map((feature, idx) => (
+                <CourseFeatures feature={feature} key={idx} />
+              ))}
             </div>
 
             <hr className="w-full border-none h-[1px] bg-base-300" />
 
             <div
               className="px-5 py-4"
-              dangerouslySetInnerHTML={{ __html: post }}
-            >
-              {/* <div>
-                <p>
-                  <strong className="text-lg">About this course</strong>
-                  <br />
-                  Every parent wants their children to know how to speak English
-                  fluently and be able to present themselves smartly. Nowadays,
-                  being proficient in Spoken English is a prerequisite for
-                  presenting oneself smartly in every aspect of life, including
-                  institutional, social, and family. Moreover, being fluent in
-                  English from an early age makes it relatively easier to grasp
-                  the subjects of higher education later on.
-                </p>
-                <br />
-                <p>
-                  What if your little one could also speak English flawlessly
-                  and stay ahead of others from an early age? Wouldn't that be
-                  great? If you think the same, then Ten Minute Schook's “Kid's
-                  English” is the perfect choice for you!
-                </p>
-                <br />
-                <p>
-                  There is absolutely no substitute for Spoken English in
-                  academic life, be it in classrooms or in extra-curricular
-                  activities. It even plays a vital role in college and job
-                  applications. That's why 10 Minute School has brought to you
-                  this Spoken English for Kids course that will help to build
-                  your kid's communication skills by following effective
-                  techniques.
-                </p>
-                <p>
-                  Our Expert Course Instructor Munzereen Shahid will guide your
-                  child in the art of Spoken English and help your kid become a
-                  confident and fluent English speaker.
-                </p>
-                <br />
-                <p>
-                  <strong className="text-lg">About this course</strong>
-                </p>
-                <ul className="ml-4">
-                  <li className="list-disc list-inside">
-                    This course is specifically designed to keep children and
-                    their needs in mind.
-                  </li>
-                  <li className="list-disc list-inside">
-                    It addresses the various challenges faced by children while
-                    learning how to read, write and speak English.
-                  </li>
-                  <li className="list-disc list-inside">
-                    It tries to encourage children to learn English while also
-                    focusing on helping them lose their fears related to the
-                    subject.
-                  </li>
-                  <li className="list-disc list-inside">
-                    The quizzes and flashcards of this course are designed to
-                    retain the attention of children.
-                  </li>
-                </ul>
-              </div> */}
-            </div>
+              dangerouslySetInnerHTML={{ __html: courseAbout }}
+            ></div>
           </div>
         </div>
       </div>
@@ -134,14 +75,14 @@ const CourseDetails = () => {
           <figure className="relative thumb-courseThumb overflow-hidden ">
             <img
               className="w-full object-cover"
-              src="https://10minuteschool.com/skills/courses/_next/image?url=https%3A%2F%2Fcdn.10minuteschool.com%2Fimages%2Fthumbnails%2Fspoken_english_for_kids_by_ms_16_9.jpg&w=1080&q=75"
-              alt="thumb"
+              src={thumbnail}
+              alt={course_title}
             />
           </figure>
         </div>
         <div className="p-5">
           <h2 className="text-2xl font-medium mb-3 text-end text-base-content">
-            <span className="font-serif">৳</span> 0
+            <span className="font-serif">৳</span> {price}
           </h2>
 
           <div className="grid grid-cols-7 gap-2">
@@ -170,7 +111,9 @@ const CourseDetails = () => {
               <FiUsers className="h-6 w-6" />
               <div>
                 <p className="text-gray-400 dark:text-white/25">Enrolled</p>
-                <p className="text-md font-medium">17872 Learners</p>
+                <p className="text-md font-medium">
+                  {enrolledStudent} Learners
+                </p>
               </div>
             </div>
 
@@ -182,7 +125,7 @@ const CourseDetails = () => {
                 <p className="text-gray-400 dark:text-white/25">
                   Hours Required
                 </p>
-                <p className="text-md font-medium">5 Hours</p>
+                <p className="text-md font-medium">{hoursRequired} Hours</p>
               </div>
             </div>
           </div>
@@ -190,29 +133,9 @@ const CourseDetails = () => {
           <hr className="h-[0.1px] w-[95%] my-2 mx-auto bg-gray-300 dark:bg-gray-600 border-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 px-5 mt-5">
-            <span className="flex items-center gap-2 text-lg justify-center">
-              <FcApproval className="w-5 h-5" /> 5 Free Videos
-            </span>
-
-            <span className="flex items-center gap-2 text-lg justify-center">
-              <FcApproval className="w-5 h-5" /> 5 Free Videos
-            </span>
-
-            <span className="flex items-center gap-2 text-lg justify-center">
-              <FcApproval className="w-5 h-5" /> 5 Free Videos
-            </span>
-
-            <span className="flex items-center gap-2 text-lg justify-center">
-              <FcApproval className="w-5 h-5" /> 5 Free Videos
-            </span>
-
-            <span className="flex items-center gap-2 text-lg justify-center">
-              <FcApproval className="w-5 h-5" /> 5 Free Videos
-            </span>
-
-            <span className="flex items-center gap-2 text-lg justify-center">
-              <FcApproval className="w-5 h-5" /> 5 Free Videos
-            </span>
+            {mainFeatures.map((feature, idx) => (
+              <CourseMainFeature feature={feature} key={idx} />
+            ))}
           </div>
         </div>
       </div>

@@ -28,6 +28,7 @@ const InstructorCard = ({ instructorId }) => {
                 alt={instructor?.name ? instructor?.name : "Instructor Photo"}
                 src={instructor?.image ? instructor?.image : avatar}
                 className="mx-auto"
+                referrerPolicy="no-referrer"
               />
             </div>
           </div>
