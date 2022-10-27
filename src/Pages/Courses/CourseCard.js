@@ -26,7 +26,7 @@ const CourseCard = ({ course }) => {
 
       <div className="px-3 py-2 space-y-3">
         <Link
-          to={`/course/${course_id}/${course_slug}`}
+          to={`/courses/course/${course_id}/${course_slug}`}
           type="button"
           className="btn btn-primary w-full p-0 m-0 min-h-[1rem] max-h-10"
         >

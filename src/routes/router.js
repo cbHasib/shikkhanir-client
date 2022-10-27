@@ -78,7 +78,7 @@ export const routes = createBrowserRouter([
         element: <FAQs />,
       },
       {
-        path: "/course/:id/:slug",
+        path: "/courses/course/:id/:slug",
         loader: ({ params }) =>
           fetch(`${process.env.REACT_APP_serverURL}/course/${params.id}`),
         element: <CourseDetails />,
