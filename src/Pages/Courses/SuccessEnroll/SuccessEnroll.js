@@ -18,7 +18,7 @@ const SuccessEnroll = () => {
         </svg>
         <div class="text-center">
           <h3 class="md:text-2xl text-base text-base-content font-semibold text-center">
-            Payment Done!
+            Successfully Enrolled!
           </h3>
           <p class="text-base-content my-2">
             Thank you for completing your secure online payment.
