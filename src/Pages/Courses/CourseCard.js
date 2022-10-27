@@ -5,7 +5,7 @@ const CourseCard = ({ course }) => {
   const { course_id, course_title, course_slug, price, thumbnail } = course;
 
   return (
-    <div className="max-w-[330px] bg-white rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100 p-3 relative flex flex-col justify-between text-center">
+    <div className="max-w-[330px] bg-white rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100 p-3 relative flex flex-col justify-between text-center hover:-translate-y-1 duration-300">
       <div className="bg-warning text-black p-1.5 rounded-full absolute top-1 right-1">
         <span className="font-serif">৳</span>
         {price}
