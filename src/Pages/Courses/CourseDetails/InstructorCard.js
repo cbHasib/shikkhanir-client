@@ -7,7 +7,7 @@ import avatar from "../../../assets/images/user.png";
 const InstructorCard = ({ instructorId }) => {
   const [instructor, setInstructor] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:5000/instructor/${instructorId}`)
+    fetch(`${process.env.REACT_APP_serverURL}/instructor/${instructorId}`)
       .then((res) => res.json())
       .then((data) => setInstructor(data.data));
   }, [instructorId]);

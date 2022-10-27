@@ -14,7 +14,6 @@ const ref = React.createRef();
 const CourseDetails = () => {
   const course = useLoaderData().data;
 
-
   const {
     courseAbout,
     course_description,
@@ -31,7 +30,7 @@ const CourseDetails = () => {
   } = course;
 
   useScrollToTop();
-  useTitle("Course Details");
+  useTitle(course_title);
 
   return (
     <div
@@ -96,7 +95,7 @@ const CourseDetails = () => {
               Premium Access <FiArrowRight className="w-5 h-5" />{" "}
             </Link>
 
-            <Pdf targetRef={ref} filename="course-details.pdf">
+            <Pdf targetRef={ref} filename={`${course_title}.pdf`}>
               {({ toPdf }) => (
                 <button
                   onClick={toPdf}

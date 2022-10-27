@@ -22,7 +22,7 @@ const SideBar = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch(`${process.env.REACT_APP_serverURL}/categories`)
       .then((res) => res.json())
       .then((data) => setCategories(data.data));
   }, []);
