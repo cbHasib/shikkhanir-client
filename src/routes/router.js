@@ -95,7 +95,7 @@ export const routes = createBrowserRouter([
       {
         path: "/checkout/:id",
         loader: ({ params }) =>
-          fetch(`${process.env.REACT_APP_serverURL}/course/${params.id}`),
+          fetch(`${process.env.REACT_APP_serverURL}/checkout/${params.id}`),
         element: (
           <PrivateRouter>
             <Checkout />
