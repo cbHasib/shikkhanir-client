@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import useScrollToTop from "../../../hooks/useScrollToTop";
 import useTitle from "../../../hooks/useTitle";
 
@@ -15,6 +16,10 @@ const Checkout = () => {
 
   const submitHandle = (e) => {
     e.preventDefault();
+    toast.success(
+      `Congratulations! You have successfully enrolled
+      ${course_title}`
+    );
     navigate("/success");
   };
 
