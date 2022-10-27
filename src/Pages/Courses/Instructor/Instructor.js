@@ -10,8 +10,8 @@ const Instructor = () => {
   useScrollToTop();
   useTitle(name);
   return (
-    <div className=" bg-base-200 dark:bg-gray-900 flex flex-wrap items-center justify-center">
-      <div className="container max-w-lg bg-white rounded dark:bg-gray-800 shadow-lg transform duration-200 easy-in-out m-12">
+    <div className=" bg-base-200 dark:bg-gray-900 flex flex-wrap items-center justify-center py-7 px-5">
+      <div className="container max-w-lg bg-white rounded dark:bg-gray-800 shadow-lg transform duration-200 easy-in-out">
         <div className="h-52 overflow-hidden">
           <img
             className="w-full rounded-t object-cover"
@@ -24,7 +24,7 @@ const Instructor = () => {
             <img
               alt={`${name} Visual`}
               src={image}
-              className="mx-auto object-cover rounded-full h-24 w-24 bg-white p-1 border-2 border-primary"
+              className="mx-auto object-cover rounded-full h-24 w-24 bg-white p-1 border-2 border-purple-700"
             />
           </span>
         </div>
