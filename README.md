@@ -39,3 +39,4 @@ ShikkhaNir acknowledge the hard work and contribution of the following third par
 **5. [React Toastify](https://fkhadra.github.io/react-toastify/) - ReactTostify for Showing Toast to the user**\
 **6. [SwiperJS](https://swiperjs.com/) - SwiperJS Creating Amazing Slider**\
 **7. [React Icons](https://react-icons.github.io/react-icons/) - React Icons for using various icons**
+**7. [React to PDF](https://github.com/ivmarcos/react-to-pdf) - Making PDF for a website**

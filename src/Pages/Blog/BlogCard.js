@@ -11,7 +11,7 @@ const BlogCard = () => {
     };
 
   return (
-    <div
+    <div 
       onClick={() => handleBlog('slug')}
       className="card card-compact w-full bg-base-100 shadow-lg overflow-hidden border border-base-300 blogCard cursor-pointer"
     >

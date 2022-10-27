@@ -4,6 +4,11 @@ import { FcApproval } from "react-icons/fc";
 import { Link, useLoaderData } from "react-router-dom";
 import useScrollToTop from "../../../hooks/useScrollToTop";
 import useTitle from "../../../hooks/useTitle";
+import Pdf from "react-to-pdf";
+import avatar from "../../../assets/images/user.png";
+import "./CourseDetails.css";
+
+const ref = React.createRef();
 
 const CourseDetails = () => {
   const data = useLoaderData();
@@ -13,7 +18,10 @@ const CourseDetails = () => {
   useTitle("Course Details");
 
   return (
-    <div className="flex flex-col-reverse justify-center lg:flex-row gap-5 lg:gap-10 p-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-14">
+    <div
+      ref={ref}
+      className="flex flex-col-reverse justify-center lg:flex-row gap-5 lg:gap-10 p-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-14"
+    >
       <div className="mb-5 md:mb-10">
         {/* Course Title and Short Description */}
         <div>
@@ -37,11 +45,7 @@ const CourseDetails = () => {
             >
               <div className="flex flex-col  justify-center items-center mr-4 avatar ">
                 <div className="block relative w-16 rounded-full ring">
-                  <img
-                    alt="profile"
-                    src="https://placeimg.com/192/192/people"
-                    className="mx-auto"
-                  />
+                  <img alt="profile" src={avatar} className="mx-auto" />
                 </div>
               </div>
               <div className="flex-1 pl-1 md:mr-16">
@@ -148,12 +152,14 @@ const CourseDetails = () => {
       </div>
 
       <div className="w-full lg:min-w-fit lg:max-w-xl border border-base-300 rounded-lg lg:sticky lg:top-20 overflow-hidden h-fit dark:bg-gray-800">
-        <div className="rounded-t-lg overflow-hidden hover:rounded-b-2xl duration-300 shadow">
-          <iframe
-            className="w-full aspect-video "
-            src="https://www.youtube.com/embed/YE5HRqSjbLI?enablejsapi=1&amp;origin=https%3A%2F%2F10minuteschool.com&amp;widgetid=5"
-            title="dd"
-          ></iframe>
+        <div className="rounded-t-lg overflow-hidden duration-300 shadow relative course-image-box courseThumb">
+          <figure className="relative thumb-courseThumb overflow-hidden">
+            <img
+              className="max-w-[460px] max-h-fit object-cover"
+              src="https://10minuteschool.com/skills/courses/_next/image?url=https%3A%2F%2Fcdn.10minuteschool.com%2Fimages%2Fthumbnails%2Fspoken_english_for_kids_by_ms_16_9.jpg&w=1080&q=75"
+              alt="thumb"
+            />
+          </figure>
         </div>
         <div className="p-5">
           <h2 className="text-2xl font-medium mb-3 text-end text-base-content">
@@ -167,10 +173,18 @@ const CourseDetails = () => {
             >
               Premium Access <FiArrowRight className="w-5 h-5" />{" "}
             </Link>
-            <button className="btn btn-warning w-full col-span-7 lg:col-span-3  gap-2">
-              Download PDF
-              <FiDownload className="w-5 h-5" />
-            </button>
+
+            <Pdf targetRef={ref} filename="course-details.pdf">
+              {({ toPdf }) => (
+                <button
+                  onClick={toPdf}
+                  className="btn btn-warning w-full col-span-7 lg:col-span-3  gap-2"
+                >
+                  Download PDF
+                  <FiDownload className="w-5 h-5" />
+                </button>
+              )}
+            </Pdf>
           </div>
 
           <div className="flex justify-around items-center py-5">
