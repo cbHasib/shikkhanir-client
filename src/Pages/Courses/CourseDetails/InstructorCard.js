@@ -17,7 +17,7 @@ const InstructorCard = ({ instructorId }) => {
       <h2 className="mt-5 text-2xl mb-1 font-medium">Instructor</h2>
       <div>
         <Link
-          to={`/instructor/${
+          to={`/instructor/${instructor?.id ? instructor?.id : "0"}/${
             instructor?.instructor_slug ? instructor?.instructor_slug : ""
           }`}
           className="shadow border dark:border-gray-600 select-none cursor-pointer bg-white dark:bg-gray-800 rounded-md flex flex-1 items-center px-5 py-4"
