@@ -151,11 +151,11 @@ const CourseDetails = () => {
         </div>
       </div>
 
-      <div className="w-full lg:min-w-fit lg:max-w-xl border border-base-300 rounded-lg lg:sticky lg:top-20 overflow-hidden h-fit dark:bg-gray-800">
+      <div className="w-full lg:min-w-[470px] lg:max-w-2xl border border-base-300 rounded-lg lg:sticky lg:top-20 overflow-hidden h-fit dark:bg-gray-800">
         <div className="rounded-t-lg overflow-hidden duration-300 shadow relative course-image-box courseThumb">
-          <figure className="relative thumb-courseThumb overflow-hidden">
+          <figure className="relative thumb-courseThumb overflow-hidden ">
             <img
-              className="max-w-[460px] max-h-fit object-cover"
+              className="w-full object-cover"
               src="https://10minuteschool.com/skills/courses/_next/image?url=https%3A%2F%2Fcdn.10minuteschool.com%2Fimages%2Fthumbnails%2Fspoken_english_for_kids_by_ms_16_9.jpg&w=1080&q=75"
               alt="thumb"
             />

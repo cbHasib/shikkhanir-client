@@ -5,22 +5,25 @@ const CourseCard = ({ courseData }) => {
   const { name } = courseData;
 
   return (
-    <div className="max-w-[330px] bg-white rounde-lg shadow-md dark:bg-gray-900 dark:text-gray-100 p-3 ">
-      <img
-        src="https://cdn.10minuteschool.com/images/Admission/Thumbnails/hsc_bangla_course.jpg"
-        alt=""
-        className="object-cover object-center w-full rounded-lg h-44 dark:bg-gray-500"
-      />
-      <div className="flex flex-col justify-between px-3 py-2 space-y-3">
-        <div className="space-y-2">
-          <h2 className="text-xl font-semibold tracking-wide">
+    <div className="max-w-[330px] bg-white rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100 p-3 relative flex flex-col justify-between text-center">
+      <div className="bg-info p-1.5 rounded-full absolute top-1 right-1">
+        $33
+      </div>
+
+      <div>
+        <img
+          src="https://cdn.10minuteschool.com/images/Admission/Thumbnails/hsc_bangla_course.jpg"
+          alt=""
+          className="object-cover object-center w-full rounded-lg h-44 dark:bg-gray-500"
+        />
+        <div className="px-3 py-2 space-y-3">
+          <h2 className="text-xl font-semibold tracking-wide text-ellipsis ">
             {name ? name : " Donec lectus leo"}
           </h2>
-          <p className="dark:text-gray-100 text-sm">
-            Amazing course for students to get best results.
-          </p>
         </div>
+      </div>
 
+      <div className="px-3 py-2 space-y-3">
         <Link
           to="/course/slug"
           type="button"
