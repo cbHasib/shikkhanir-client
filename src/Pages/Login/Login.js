@@ -76,7 +76,7 @@ const Login = () => {
                 className="input input-bordered w-full"
                 type="email"
                 name="email"
-                placeholder="Ex. james@bond.com"
+                placeholder="Ex. hasib@shikkhanir.com"
                 inputMode="email"
                 required
               />
