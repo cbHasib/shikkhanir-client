@@ -90,11 +90,7 @@ export const routes = createBrowserRouter([
         element: <CourseDetails />,
       },
       {
-        path: "/courses/course-content/:courseId/:slug",
-        loader: ({ params }) =>
-          fetch(
-            `${process.env.REACT_APP_serverURL}/course-content/${params.courseId}`
-          ),
+        path: "/courses/content/:courseId/:slug",
         element: <CourseContent />,
       },
       {
@@ -114,7 +110,7 @@ export const routes = createBrowserRouter([
       {
         path: "/checkout/:id",
         loader: ({ params }) =>
-          fetch(`${process.env.REACT_APP_serverURL}/checkout/${params.id}`),
+          fetch(`${process.env.REACT_APP_serverURL}/course/${params.id}`),
         element: (
           <PrivateRouter>
             <Checkout />
@@ -144,7 +140,7 @@ export const routes = createBrowserRouter([
         path: "/courses/:Id/:cat_slug",
         loader: async ({ params }) => {
           return fetch(
-            `${process.env.REACT_APP_serverURL}/category/${params.Id}`
+            `${process.env.REACT_APP_serverURL}/courses-by-category/${params.Id}`
           );
         },
         element: <Courses />,

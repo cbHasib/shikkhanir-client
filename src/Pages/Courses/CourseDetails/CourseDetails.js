@@ -17,7 +17,7 @@ const CourseDetails = () => {
   const {
     courseAbout,
     course_description,
-    course_id,
+    _id,
     course_title,
     enrolledStudent,
     hoursRequired,
@@ -27,6 +27,8 @@ const CourseDetails = () => {
     price,
     thumbnail,
   } = course;
+
+  console.log(course.instructorId);
 
   useScrollToTop();
   useTitle(course_title);
@@ -88,7 +90,7 @@ const CourseDetails = () => {
 
           <div className="grid grid-cols-7 gap-2">
             <Link
-              to={`/checkout/${course_id}`}
+              to={`/checkout/${_id}`}
               className="btn btn-primary w-full col-span-7 lg:col-span-4 gap-4"
             >
               Premium Access <FiArrowRight className="w-5 h-5" />{" "}

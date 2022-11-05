@@ -4,12 +4,12 @@ import { FiVideo } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 
 const SideBarCategory = ({ category }) => {
-  const { cat_id, cat_name, cat_slug } = category;
+  const { _id, cat_name, cat_slug } = category;
   return (
     <li>
       <NavLink
         rel="noopener noreferrer"
-        to={`/courses/${cat_id}/${cat_slug}`}
+        to={`/courses/${_id}/${cat_slug}`}
         className={({ isActive }) =>
           isActive
             ? "flex items-center p-2 space-x-3 my-1 rounded-md shadow-md bg-primary text-white"

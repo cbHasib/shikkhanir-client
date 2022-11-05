@@ -59,7 +59,7 @@ const SideBar = () => {
         <div className="divide-y dark:divide-gray-700">
           <ul className="pt-2 pb-4 space-y-1 text-sm">
             {categories.map((category) => (
-              <SideBarCategory key={category.cat_id} category={category} />
+              <SideBarCategory key={category._id} category={category} />
             ))}
           </ul>
 

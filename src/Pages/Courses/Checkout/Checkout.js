@@ -5,14 +5,19 @@ import useScrollToTop from "../../../hooks/useScrollToTop";
 import useTitle from "../../../hooks/useTitle";
 
 const Checkout = () => {
-  const data = useLoaderData().data;
+  const response = useLoaderData();
+  const data = response.data;
 
-  const { course_title, price, thumbnail } = data;
+  console.log(data);
 
   useScrollToTop();
   useTitle("Checkout");
 
   const navigate = useNavigate();
+  if (!response.success) {
+    return alert("Having some issue with the server. Try again later");
+  }
+  const { course_title, price, thumbnail, _id, course_slug } = data;
 
   const submitHandle = (e) => {
     e.preventDefault();
@@ -20,7 +25,9 @@ const Checkout = () => {
       `Congratulations! You have successfully enrolled
       ${course_title}`
     );
-    navigate("/success");
+    navigate("/success", {
+      state: { course_slug: course_slug, course_id: _id },
+    });
   };
 
   return (

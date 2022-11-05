@@ -215,7 +215,7 @@ const Header = () => {
               {user ? (
                 <div
                   className="tooltip tooltip-primary tooltip-bottom hidden lg:block ml-6"
-                  data-tip="Hasibul Hasan"
+                  data-tip={`${user?.displayName ? user?.displayName : ""}`}
                 >
                   <HeaderUserProfile />
                 </div>
