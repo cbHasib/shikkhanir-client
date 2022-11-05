@@ -60,15 +60,10 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/blog",
-        loader: async () => fetch(`${process.env.REACT_APP_serverURL}/blogs`),
         element: <Blog />,
       },
       {
         path: "/blog/post/:slug",
-        loader: async ({ params }) =>
-          fetch(
-            `${process.env.REACT_APP_serverURL}/single-blog/${params.slug}`
-          ),
         element: <SingleBlog />,
       },
       {
@@ -92,17 +87,7 @@ export const routes = createBrowserRouter([
         element: <CourseContent />,
       },
       {
-        path: "/courses/course-content/:courseId/:slug/:videoSlug",
-        loader: ({ params }) =>
-          fetch(
-            `${process.env.REACT_APP_serverURL}/course-content/${params.courseId}`
-          ),
-        element: <CourseContent />,
-      },
-      {
         path: "/instructor/:id/:slug",
-        loader: ({ params }) =>
-          fetch(`${process.env.REACT_APP_serverURL}/instructor/${params.id}`),
         element: <Instructor />,
       },
       {

@@ -98,7 +98,7 @@ const Courses = () => {
               )}
 
               <div className="form-control">
-                <label className="lael">
+                <label className="label">
                   <span>View Per Page</span>
                 </label>
                 <select
