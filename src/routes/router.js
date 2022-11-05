@@ -84,9 +84,7 @@ export const routes = createBrowserRouter([
         element: <FAQs />,
       },
       {
-        path: "/courses/course/:id/:slug",
-        loader: ({ params }) =>
-          fetch(`${process.env.REACT_APP_serverURL}/course/${params.id}`),
+        path: "/courses/:id/:slug",
         element: <CourseDetails />,
       },
       {
@@ -133,16 +131,10 @@ export const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: async () => fetch(`${process.env.REACT_APP_serverURL}/courses`),
         element: <Courses />,
       },
       {
         path: "/courses/:Id/:cat_slug",
-        loader: async ({ params }) => {
-          return fetch(
-            `${process.env.REACT_APP_serverURL}/courses-by-category/${params.Id}`
-          );
-        },
         element: <Courses />,
       },
     ],

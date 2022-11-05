@@ -6,7 +6,7 @@ import avatar from "../../../assets/images/user.png";
 import { AuthContext } from "../../../Contexts/UserContext";
 import SideBarCategory from "./SideBarCategory";
 
-const SideBar = () => {
+const SideBar = ({ setCat_id, cat_id }) => {
   const { user, logout } = useContext(AuthContext);
   const [categories, setCategories] = useState([]);
 
@@ -59,7 +59,12 @@ const SideBar = () => {
         <div className="divide-y dark:divide-gray-700">
           <ul className="pt-2 pb-4 space-y-1 text-sm">
             {categories.map((category) => (
-              <SideBarCategory key={category._id} category={category} />
+              <SideBarCategory
+                key={category._id}
+                category={category}
+                setCat_id={setCat_id}
+                cat_id={cat_id}
+              />
             ))}
           </ul>
 
