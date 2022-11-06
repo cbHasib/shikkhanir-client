@@ -1,10 +1,66 @@
 import React from "react";
+import { toast } from "react-toastify";
 import useScrollToTop from "../../hooks/useScrollToTop";
 import useTitle from "../../hooks/useTitle";
 
 const Contact = () => {
   useScrollToTop();
   useTitle("Contact");
+
+  const handleContact = (e) => {
+    e.preventDefault();
+
+    const id = toast.loading("Please wait email sending...");
+
+    const email = e.target.email.value;
+    const message = e.target.message.value;
+    const subject = e.target.subject.value;
+    const name = e.target.name.value;
+    const data = {
+      name,
+      email,
+      subject,
+      message,
+    };
+
+    // Send data to server
+    fetch(`${process.env.REACT_APP_serverURL}/contact-form`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.update(id, {
+            render: data.message,
+            type: "success",
+            autoClose: true,
+            isLoading: false,
+          });
+
+          // toast.success(data.message);
+          e.target.reset();
+        } else {
+          toast.update(id, {
+            render: data.error,
+            type: "error",
+            isLoading: false,
+            autoClose: true,
+          });
+        }
+      })
+      .catch((err) => {
+        toast.update(id, {
+          render: err.message,
+          type: "error",
+          isLoading: false,
+          autoClose: true,
+        });
+      });
+  };
 
   return (
     <section className="py-20 dark:bg-gray-800 dark:text-gray-50">
@@ -54,7 +110,22 @@ const Contact = () => {
           </div>
         </div>
 
-        <form action="#" className="md:pl-">
+        <form onSubmit={handleContact} className="md:pl-">
+          <div className="mb-6">
+            <label
+              htmlFor="name"
+              className="block mb-2 text-sm font-medium text-base-content"
+            >
+              Your Full Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              className="input input-bordered w-full"
+              placeholder="Hasibul Hasan"
+              required
+            />
+          </div>
           <div className="mb-6">
             <label
               htmlFor="email"
