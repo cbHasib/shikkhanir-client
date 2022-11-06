@@ -12,11 +12,12 @@ In the project directory, you will find these feature: \
 <span style="color:#00C49F">**3. Login & Register using email, google, github** </span> \
 <span style="color:#00C49F">**4. Course page** </span> \
 <span style="color:#00C49F">**5. Course Details Page** </span> \
-<span style="color:#00C49F">**6. Course Content Page (Demo Mode. Only For One Course..)** </span> \
+<span style="color:#00C49F">**6. Course Content Page** </span> \
 <span style="color:#00C49F">**7. Blog** </span> \
 <span style="color:#00C49F">**8. Single Blog Template** </span> \
-<span style="color:#00C49F">**9. Profile Page** </span> \
-<span style="color:#00C49F">**10. Profile Can be Updated** </span>
+<span style="color:#00C49F">**9. Blog Post View Count** </span> \
+<span style="color:#00C49F">**10. Profile Page** </span> \
+<span style="color:#00C49F">**11. Profile Can be Updated** </span>
 
 <br>
 

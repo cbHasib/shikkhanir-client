@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import useScrollToTop from "../../hooks/useScrollToTop";
 import useTitle from "../../hooks/useTitle";
 import LoadingSpinner from "../Common/LoadingSpinner";
+import viewIcon from "../../assets/icons/carbon_view.svg";
 
 const SingleBlog = () => {
   const { cat_slug, slug } = useParams();
@@ -30,8 +31,15 @@ const SingleBlog = () => {
       });
   }, [slug, cat_slug]);
 
-  const { author, thumbnail, postBody, publishDate, readingMinute, title } =
-    blog;
+  const {
+    author,
+    thumbnail,
+    postBody,
+    publishDate,
+    readingMinute,
+    title,
+    viewCount,
+  } = blog;
 
   useScrollToTop();
   useTitle(title || error || "Blog");
@@ -72,6 +80,16 @@ const SingleBlog = () => {
                   </div>
                 </div>
                 <div className="flex gap-2 items-center justify-end">
+                  <div
+                    class="h-full flex mr-3 gap-2 items-center justify-center"
+                    title="Total Views"
+                  >
+                    <figure>
+                      <img className="" src={viewIcon} alt="" />
+                    </figure>
+                    <div>{viewCount}</div>
+                  </div>
+
                   <a
                     href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
                     rel="noreferrer"
