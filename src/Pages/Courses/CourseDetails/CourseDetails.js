@@ -84,7 +84,7 @@ const CourseDetails = () => {
               </h2>
               <div className="border dark:border-gray-600  bg-white dark:bg-gray-800 rounded-md">
                 <div className="px-5 py-4">
-                  {learnFeatures.map((feature, idx) => (
+                  {learnFeatures?.map((feature, idx) => (
                     <CourseFeatures feature={feature} key={idx} />
                   ))}
                 </div>
@@ -163,7 +163,7 @@ const CourseDetails = () => {
               <hr className="h-[0.1px] w-[95%] my-2 mx-auto bg-gray-300 dark:bg-gray-600 border-none" />
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 px-5 mt-5">
-                {mainFeatures.map((feature, idx) => (
+                {mainFeatures?.map((feature, idx) => (
                   <CourseMainFeature feature={feature} key={idx} />
                 ))}
               </div>

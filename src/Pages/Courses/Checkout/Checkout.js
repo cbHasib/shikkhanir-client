@@ -8,8 +8,6 @@ const Checkout = () => {
   const response = useLoaderData();
   const data = response.data;
 
-  console.log(data);
-
   useScrollToTop();
   useTitle("Checkout");
 

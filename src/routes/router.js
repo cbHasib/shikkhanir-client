@@ -63,7 +63,7 @@ export const routes = createBrowserRouter([
         element: <Blog />,
       },
       {
-        path: "/blog/post/:slug",
+        path: "/blog/post/:cat_slug/:slug",
         element: <SingleBlog />,
       },
       {

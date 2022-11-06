@@ -6,14 +6,14 @@ import useTitle from "../../hooks/useTitle";
 import LoadingSpinner from "../Common/LoadingSpinner";
 
 const SingleBlog = () => {
-  const { slug } = useParams();
+  const { cat_slug, slug } = useParams();
 
   const [error, setError] = useState(null);
   const [load, setLoad] = useState(true);
-  const [blog, setBlog] = useState([]);
+  const [blog, setBlog] = useState({});
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_serverURL}/single-blog/${slug}`)
+    fetch(`${process.env.REACT_APP_serverURL}/single-blog/${cat_slug}/${slug}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -28,9 +28,10 @@ const SingleBlog = () => {
         setError(err.message);
         setLoad(false);
       });
-  }, [slug]);
+  }, [slug, cat_slug]);
 
-  const { author, image, postBody, publishDate, readTime, title } = blog;
+  const { author, thumbnail, postBody, publishDate, readingMinute, title } =
+    blog;
 
   useScrollToTop();
   useTitle(title || error || "Blog");
@@ -46,7 +47,7 @@ const SingleBlog = () => {
           <div className="w-[95%] lg:w-[70%] mx-auto rounded-2xl overflow-hidden pb-20 shadow-md bg-base-100">
             <img
               className="shadow border border-base-300 w-full h-80 object-cover rounded-t-2xl"
-              src={image}
+              src={thumbnail}
               alt={title}
             />
             <div className="px-10 lg:px-20">
@@ -67,7 +68,7 @@ const SingleBlog = () => {
                   </div>
                   <div className="flex gap-2 text-sm text-base-content">
                     <span>{publishDate}</span> •{" "}
-                    <span>{readTime} min read</span>
+                    <span>{readingMinute} min read</span>
                   </div>
                 </div>
                 <div className="flex gap-2 items-center justify-end">

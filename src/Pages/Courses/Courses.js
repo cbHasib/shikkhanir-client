@@ -80,8 +80,7 @@ const Courses = () => {
             <div className="flex justify-evenly items-center pb-12">
               {count > limit && (
                 <div className="btn-group">
-                  {[...Array(totalPage).keys()].map((index) => {
-                    console.log(index);
+                  {[...Array(totalPage).keys()]?.map((index) => {
                     return (
                       <button
                         key={index}

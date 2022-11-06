@@ -43,7 +43,6 @@ const Register = () => {
     register(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         form.reset();
         toast.success("Account Registration Successful!");
         updateProfile(user, {
