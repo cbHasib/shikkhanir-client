@@ -53,7 +53,7 @@ const SingleBlog = () => {
         <div className="p-3 lg:p-10 bg-base-200">
           <div className="w-[95%] lg:w-[70%] mx-auto rounded-2xl overflow-hidden pb-20 shadow-md bg-base-100">
             <img
-              className="shadow border border-base-300 w-full h-80 object-cover rounded-t-2xl"
+              className="shadow border border-base-300 w-full h-full lg:h-80 object-cover rounded-t-2xl"
               src={thumbnail}
               alt={title}
             />
