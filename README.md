@@ -23,8 +23,8 @@ In the project directory, you will find these feature: \
 
 ## **`Useful Links`**
 
-**1. [Github Client Site Repository](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-cbHasib)** \
-**2. [Github Server SIte Repository](https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-cbHasib)** \
+**1. [Github Client Side Repository](https://github.com/cbHasib/shikkhanir-client)** \
+**2. [Github Server Side Repository](https://github.com/cbHasib/shikkhanir-server-mongodb)** \
 **3. [Live Website](https://shikkhanir-client.web.app/)**
 
 <br>
