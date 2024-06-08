@@ -19,6 +19,7 @@ import Register from "../Pages/Register/Register";
 import EditProfile from "../Pages/User/EditProfile/EditProfile";
 import UserProfile from "../Pages/User/UserProfile/UserProfile";
 import PrivateRouter from "./PrivateRouter";
+import OpenApp from "../Pages/OpenApp/OpenApp";
 
 export const routes = createBrowserRouter([
   {
@@ -123,6 +124,14 @@ export const routes = createBrowserRouter([
         element: <Courses />,
       },
     ],
+  },
+  {
+    path: "/open-app/:url",
+    element: <OpenApp />,
+  },
+  {
+    path: "/open-app",
+    element: <OpenApp />,
   },
   {
     path: "*",
