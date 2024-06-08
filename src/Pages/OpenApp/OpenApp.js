@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import HomeAppContent from '../Home/HomeAppContent';
 
 export default function OpenApp() {
     let [searchParams] = useSearchParams();
     const url = searchParams.get('urlTo')
 
     useEffect(() => {
-        openApp(url)
+        if (url) openApp(url)
     }, [url])
 
 
@@ -28,9 +29,10 @@ export default function OpenApp() {
     }
 
     return (
-        <div className='container mt-5 text-center'>
-            <h1>🚀 Open ShikkhaNir</h1>
-            <button className='btn btn-primary' onClick={openApp}>Open App</button>
+        <div className='flex items-center justify-center p-40 w-full h-screen bg-gray-100 dark:bg-gray-800'>
+            <div className="flex items-center justify-center p-2 rounded-3xl bg-white w-full shadow-xl">
+            <HomeAppContent />
+        </div>
         </div>
     )
 }
