@@ -29,7 +29,7 @@ export default function OpenApp() {
 
     return (
         <div className='container mt-5 text-center'>
-            <h1>Open ShikkhaNir</h1>
+            <h1>🚀 Open ShikkhaNir</h1>
             <button className='btn btn-primary' onClick={openApp}>Open App</button>
         </div>
     )
