@@ -126,10 +126,6 @@ export const routes = createBrowserRouter([
     ],
   },
   {
-    path: "/open-app/:url",
-    element: <OpenApp />,
-  },
-  {
     path: "/open-app",
     element: <OpenApp />,
   },

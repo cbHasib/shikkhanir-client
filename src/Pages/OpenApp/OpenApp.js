@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 
 export default function OpenApp() {
-    let [searchParams, setSearchParams] = useSearchParams();
+    let [searchParams] = useSearchParams();
     const url = searchParams.get('urlTo')
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export default function OpenApp() {
     const openApp = (url) => {
         const os = window.navigator.userAgent
         const isAndroid = os.includes('Android')
-        console.log(os);
+
         try {
             if (isAndroid) {
                 if (url) { window.open(`shikkhanir://${url}`, '_self') }
