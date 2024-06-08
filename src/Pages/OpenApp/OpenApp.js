@@ -29,7 +29,7 @@ export default function OpenApp() {
     }
 
     return (
-        <div className='flex items-center justify-center p-40 w-full h-screen bg-gray-100 dark:bg-gray-800'>
+        <div className='flex items-center justify-center p-5 lg:p-40 w-full h-screen bg-gray-100 dark:bg-gray-800'>
             <div className="flex items-center justify-center p-2 rounded-3xl bg-white w-full shadow-xl">
             <HomeAppContent />
         </div>
