@@ -7,7 +7,7 @@ export default function OpenApp() {
     const url = searchParams.get('urlTo')
 
     useEffect(() => {
-        if (url) openApp(url)
+       openApp(url)
     }, [url])
 
 
