@@ -9,7 +9,7 @@ export default function OpenApp() {
 
     useEffect(() => {
        openApp(url)
-    }, [url])
+    }, [url, type])
 
 
     const openApp = (url) => {
