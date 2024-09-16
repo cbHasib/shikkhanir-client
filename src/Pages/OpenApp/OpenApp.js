@@ -5,14 +5,14 @@ import HomeAppContent from '../Home/HomeAppContent';
 export default function OpenApp() {
     let [searchParams] = useSearchParams();
     const url = searchParams.get('urlTo')
-    const type = searchParams.get('type')
+    const searchType = searchParams.get('type')
 
     useEffect(() => {
-       openApp(url)
-    }, [url, type])
+       openApp(url, searchType)
+    }, [url, searchType])
 
 
-    const openApp = (url) => {
+    const openApp = (url, type) => {
         const os = window.navigator.userAgent
         const isAndroid = os.includes('Android')
 
