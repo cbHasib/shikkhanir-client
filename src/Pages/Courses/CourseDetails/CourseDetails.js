@@ -51,6 +51,8 @@ const CourseDetails = () => {
     thumbnail,
   } = course;
 
+  console.log(course);
+
   useScrollToTop();
   useTitle(course_title || "");
 
