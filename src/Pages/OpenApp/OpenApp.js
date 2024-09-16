@@ -5,6 +5,7 @@ import HomeAppContent from '../Home/HomeAppContent';
 export default function OpenApp() {
     let [searchParams] = useSearchParams();
     const url = searchParams.get('urlTo')
+    const type = searchParams.get('type')
 
     useEffect(() => {
        openApp(url)
@@ -16,6 +17,15 @@ export default function OpenApp() {
         const isAndroid = os.includes('Android')
 
         try {
+
+            if(type === 'custom') {
+                if (url) {
+                    window.open(`${url}`, '_self')
+                    return
+                }
+            }
+
+
             if (isAndroid) {
                 if (url) { window.open(`shikkhanir://${url}`, '_self') }
                 else { window.open('shikkhanir://', '_self') }
