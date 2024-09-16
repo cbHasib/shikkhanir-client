@@ -54,6 +54,8 @@ const CourseDetails = () => {
   useScrollToTop();
   useTitle(course_title || "");
 
+  return (<p>Course Details {course_title}</p>);
+
   return (
     <>
       {load ? (
