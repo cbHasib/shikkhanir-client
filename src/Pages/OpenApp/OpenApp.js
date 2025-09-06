@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import HomeAppContent from '../Home/HomeAppContent';
 
@@ -12,11 +12,11 @@ export default function OpenApp() {
 
     useEffect(() => {
         openApp(url, searchType)
-    }, [url, searchType])
+    }, [url, searchType, openApp])
 
 
     const openApp = (url, type) => {
-        const os = window.navigator.userAgent
+        // const os = window.navigator.userAgent
         // const isAndroid = os.includes('Android')
 
         try {

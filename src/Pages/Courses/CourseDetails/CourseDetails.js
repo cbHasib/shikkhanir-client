@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { FiArrowRight, FiClock, FiDownload, FiUsers } from "react-icons/fi";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import useScrollToTop from "../../../hooks/useScrollToTop";
 import useTitle from "../../../hooks/useTitle";
-import Pdf from "react-to-pdf";
 import "./CourseDetails.css";
-import InstructorCard from "./InstructorCard";
-import CourseFeatures from "./CourseFeatures";
-import CourseMainFeature from "./CourseMainFeature";
-import LoadingSpinner from "../../Common/LoadingSpinner";
 
-const ref = React.createRef();
 
 const CourseDetails = () => {
   const id = useParams().id;
 
   const [course, setCourse] = useState({});
-  const [load, setLoad] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoad(true);
@@ -38,17 +29,7 @@ const CourseDetails = () => {
   }, [id]);
 
   const {
-    courseAbout,
-    course_description,
-    _id,
     course_title,
-    enrolledStudent,
-    hoursRequired,
-    instructorId,
-    learnFeatures,
-    mainFeatures,
-    price,
-    thumbnail,
   } = course;
 
   console.log(course);
