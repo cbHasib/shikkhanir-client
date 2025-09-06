@@ -10,11 +10,6 @@ export default function OpenApp() {
     const status = searchParams.get('status')
     const donation = searchParams.get('donation')
 
-    useEffect(() => {
-        openApp(url, searchType)
-    }, [url, searchType, openApp])
-
-
     const openApp = (url, type) => {
         // const os = window.navigator.userAgent
         // const isAndroid = os.includes('Android')
@@ -43,6 +38,13 @@ export default function OpenApp() {
             window.open('https://play.google.com/store/apps/details?id=com.hmsoft.shikkhanir', '_self')
         }
     }
+
+
+    useEffect(() => {
+        openApp(url, searchType)
+    }, [url, searchType, openApp])
+
+
 
     return (
         <div className='flex items-center justify-center p-5 lg:p-40 w-full h-screen bg-gray-100 dark:bg-gray-800'>
