@@ -11,20 +11,20 @@ const CourseDetails = () => {
   const [course, setCourse] = useState({});
 
   useEffect(() => {
-    setLoad(true);
+    // setLoad(true);
     fetch(`${process.env.REACT_APP_serverURL}/course/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           setCourse(data.data);
         } else {
-          setError(data.error);
+          // setError(data.error);
         }
-        setLoad(false);
+        // setLoad(false);
       })
       .catch((err) => {
         console.log(err);
-        setLoad(false);
+        // setLoad(false);
       });
   }, [id]);
 
