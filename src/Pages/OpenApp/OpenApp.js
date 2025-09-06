@@ -25,7 +25,7 @@ export default function OpenApp() {
 
             let urlToChange = url
             if (donation === 'true') {
-                urlToChange = `donation-complete?amount=${amount}&status=${status}`
+                urlToChange = `(main)/course_category/donation-complete?amount=${amount}&status=${status}`
             }
 
             // if (isAndroid) {
