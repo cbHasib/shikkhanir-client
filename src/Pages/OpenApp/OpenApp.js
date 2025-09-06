@@ -42,7 +42,8 @@ export default function OpenApp() {
 
     useEffect(() => {
         openApp(url, searchType)
-    }, [url, searchType, openApp])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [url, searchType])
 
 
 
